@@ -1,40 +1,81 @@
-/* Global */
-body {
-  font-family: Arial, sans-serif;
+/* 🌈 General Reset */
+* {
   margin: 0;
   padding: 0;
-  background: #f0f4f8;
-  color: #333;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-section {
-  padding: 50px 20px;
-}
-
-h1, h2, h3, h4 {
-  margin: 10px 0;
-}
-
-/* Landing Section */
-#landing {
-  background-color: #1e90ff;
+/* 🌄 Body Background */
+body {
+  background: linear-gradient(135deg, #001f3f, #0074D9);
   color: white;
+  min-height: 100vh;
   text-align: center;
-  padding: 80px 20px;
 }
 
-.landing-buttons button {
-  margin: 15px 10px;
-  padding: 15px 30px;
-  font-size: 16px;
+/* 🏠 Header */
+header {
+  padding: 80px 20px 40px;
+}
+
+header h1 {
+  font-size: 2.8em;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2em;
+  color: #cce0ff;
+  margin-bottom: 25px;
+}
+
+/* 🔘 Buttons */
+button {
+  background: #ffcc00;
+  color: #001f3f;
   border: none;
-  border-radius: 6px;
-  background-color: white;
-  color: #1e90ff;
+  padding: 14px 28px;
+  margin: 8px;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
+button:hover {
+  background: #ffd633;
+  transform: scale(1.05);
+}
+
+/* 📦 Sections */
+section {
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 🪞 Links */
+a {
+  color: #ffcc00;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 💬 Footer Placeholder */
+footer {
+  padding: 20px;
+  font-size: 0.9em;
+  color: #ccc;
+}
 .landing-buttons button:hover {
   background-color: #e6f0ff;
 }
