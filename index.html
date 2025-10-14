@@ -1,40 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>BrightLearn — Portfolio & Buy Data</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrightLearn | Digital Services & Portfolio</title>
   <style>
-    :root{
-      --accent:#ffcc00;
-      --accent-dark:#ffd633;
-      --bg1:#06213a;
-      --bg2:#0b63b8;
-      --glass: rgba(255,255,255,0.06);
-      --muted: #cfe8ff;
-      --success: #2ecc71;
-      --error: #ff4d4d;
-      --card-bg: rgba(0,0,0,0.16);
-    }
-    *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;}
-    html,body{height:100%}
-    body{
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+    body {
+      background: linear-gradient(135deg,#001f3f,#0074D9);
+      color:white;
       min-height:100vh;
-      background: linear-gradient(135deg,var(--bg1), var(--bg2));
-      color:#fff;
       display:flex;
-      align-items:flex-start;
-      justify-content:center;
-      padding:36px 18px;
+      flex-direction:column;
+      align-items:center;
+      padding:40px 16px;
+      text-align:center;
     }
-
-    /* container */
-    .container{
+    header h1 {font-size:2.2em; margin-bottom:10px;}
+    header p {color:#cce0ff; margin-bottom:25px; font-size:1.1em;}
+    .panel {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      border-radius:16px;
+      padding:30px 20px;
       width:100%;
-      max-width:1200px;
-      display:grid;
-      grid-template-columns: 2fr 1.1fr; /* balanced columns (fixed earlier issue) */
+      max-width:500px;
+      box-shadow:0 0 20px rgba(0,0,0,0.25);
+      margin-bottom:25px;
+    }
+    input, select {
+      width:100%;
+      padding:12px;
+      margin:8px 0;
+      border-radius:8px;
+      border:none;
+      background:rgba(0,0,0,0.25);
+      color:#fff;
+      outline:none;
+    }
+    input::placeholder{color:#cce0ff;}
+    button {
+      background:#ffcc00;
+      color:#001f3f;
+      border:none;
+      padding:12px 20px;
+      border-radius:8px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      width:100%;
+    }
+    button:hover {background:#ffd633; transform:scale(1.03);}
+    .status {
+      margin-top:15px;
+      font-size:0.95em;
+      background:rgba(0,0,0,0.25);
+      padding:12px;
+      border-radius:8px;
+    }
+    footer {margin-top:30px; color:#cce0ff; font-size:0.9em;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to BrightLearn</h1>
+    <p>UI/UX • Video Editing • Graphics • Ebooks — Portfolio & Instant Digital Purchases</p>
+  </header>
+
+  <div class="panel">
+    <h2>Buy Data / Airtime</h2>
+    <p>Fast checkout — fill in your details below:</p>
+    <select id="network">
+      <option value="MTN">MTN</option>
+      <option value="AIRTEL">AIRTEL</option>
+      <option value="GLO">GLO</option>
+      <option value="9MOBILE">9MOBILE</option>
+    </select>
+    <select id="plan">
+      <option value="1GB">1GB</option>
+      <option value="2GB">2GB</option>
+      <option value="5GB">5GB</option>
+    </select>
+    <input type="text" id="phone" placeholder="Enter phone number" />
+    <input type="number" id="amount" placeholder="Amount (NGN)" />
+    <button onclick="buyData()">Purchase</button>
+    <div class="status" id="status"></div>
+  </div>
+
+  <footer>© 2025 BrightLearn — Ismail Abdullahi Idris</footer>
+
+  <script>
+    async function buyData() {
+      const network = document.getElementById("network").value;
+      const plan = document.getElementById("plan").value;
+      const phone = document.getElementById("phone").value;
+      const amount = document.getElementById("amount").value;
+      const statusBox = document.getElementById("status");
+
+      if (!phone || !amount) {
+        statusBox.innerText = "⚠️ Please fill all fields.";
+        return;
+      }
+
+      statusBox.innerText = "⏳ Processing transaction...";
+      try {
+        const response = await fetch("https://maskawasub.com/api/v1/data", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Token 00f7d2a19bc3e516650133890cc4478034db0014"
+          },
+          body: JSON.stringify({
+            network: network,
+            plan: plan,
+            phone: phone,
+            amount: amount
+          })
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          statusBox.innerText = "✅ Transaction successful! " + (data.message || "");
+        } else {
+          statusBox.innerText = "❌ Failed: " + (data.error || "Unknown error");
+        }
+      } catch (error) {
+        statusBox.innerText = "⚠️ Connection error. Try again.";
+      }
+    }
+  </script>
+</body>
+</html>      grid-template-columns: 2fr 1.1fr; /* balanced columns (fixed earlier issue) */
       gap:28px;
       align-items:start;
     }
