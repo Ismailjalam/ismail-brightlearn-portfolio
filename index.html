@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BrightLearn Portfolio</title>
+  <title>BrightLearn - Portfolio & API</title>
   <style>
-    /* 🌈 General Reset */
     * {
       margin: 0;
       padding: 0;
@@ -13,7 +12,6 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    /* 🌄 Body Background */
     body {
       background: linear-gradient(135deg, #001f3f, #0074D9);
       color: white;
@@ -25,9 +23,8 @@
       align-items: center;
     }
 
-    /* 🏠 Header */
     header {
-      margin-bottom: 40px;
+      padding: 40px 20px;
     }
 
     header h1 {
@@ -35,6 +32,112 @@
       font-weight: 700;
       margin-bottom: 10px;
     }
+
+    header p {
+      font-size: 1.2em;
+      color: #cce0ff;
+      margin-bottom: 25px;
+    }
+
+    button {
+      background: #ffcc00;
+      color: #001f3f;
+      border: none;
+      padding: 14px 28px;
+      margin: 8px;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #ffd633;
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 40px 20px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 20px;
+      border-radius: 16px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 700px;
+    }
+
+    footer {
+      padding: 20px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    .loader {
+      display: none;
+      font-size: 1.1em;
+      color: #ffcc00;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to BrightLearn!</h1>
+    <p>Explore my portfolio or buy data instantly.</p>
+  </header>
+
+  <section>
+    <button onclick="buyData()">Buy Data</button>
+    <button onclick="viewPortfolio()">View My Portfolio</button>
+    <p id="loader" class="loader">⏳ Processing your transaction...</p>
+  </section>
+
+  <footer>© 2025 BrightLearn by Ismail Abdullahi Idris</footer>
+
+  <script>
+    function buyData() {
+      const loader = document.getElementById('loader');
+      loader.style.display = 'block';
+
+      const url = 'https://maskawasub.com/api/data';
+      const bodyData = {
+        network: 'MTN',
+        plan: '1GB',
+        phone: '08012345678',
+        amount: 300
+      };
+
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer 00f7d2a19bc3e516650133890cc4478034db0014'
+        },
+        body: JSON.stringify(bodyData)
+      })
+        .then(response => response.json())
+        .then(data => {
+          loader.style.display = 'none';
+          if (data.status === 'success' || data.success) {
+            alert(`✅ Transaction Successful!\nMessage: ${data.message || 'Completed successfully!'}\nTransaction ID: ${data.transactionId || 'N/A'}`);
+          } else {
+            alert(`❌ Transaction Failed!\nReason: ${data.message || 'Unknown error'}`);
+          }
+        })
+        .catch(error => {
+          loader.style.display = 'none';
+          alert(`⚠️ Network Error: ${error.message}`);
+        });
+    }
+
+    function viewPortfolio() {
+      window.location.href = "https://ismailjalam.github.io/ismail-brightlearn-portfolio/";
+    }
+  </script>
+</body>
+</html>    }
 
     header p {
       font-size: 1.2em;
