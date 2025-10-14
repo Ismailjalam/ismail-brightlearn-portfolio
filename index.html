@@ -124,3 +124,86 @@
     <p>Project 3 description</p>
   </div>
 </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrightLearn Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Landing Page -->
+<section id="landing">
+  <h1>Welcome to BrightLearn!</h1>
+  <div class="landing-buttons">
+    <button onclick="goToAPI()">Buy Data / Airtime / Electricity</button>
+    <button onclick="goToPortfolio()">View My Portfolio</button>
+  </div>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" style="display:none;">
+  <h2>My Work & Resources</h2>
+
+  <div id="projects">
+    <h3>Featured Projects</h3>
+    <div class="project-card">
+      <h3>Project 1</h3>
+      <p>Project 1 description</p>
+    </div>
+    <div class="project-card">
+      <h3>Project 2</h3>
+      <p>Project 2 description</p>
+    </div>
+    <div class="project-card">
+      <h3>Project 3</h3>
+      <p>Project 3 description</p>
+    </div>
+  </div>
+
+  <div id="resources">
+    <h3>Ebooks & Presentations</h3>
+    <ul>
+      <li><a href="assets/ebooks/ebook1.pdf" target="_blank" class="btn">Download Ebook 1</a></li>
+      <li><a href="assets/ebooks/ebook2.pdf" target="_blank" class="btn">Download Ebook 2</a></li>
+    </ul>
+
+    <h3>Stickers & Graphics</h3>
+    <ul>
+      <li>Sticker 1</li>
+      <li>Sticker 2</li>
+    </ul>
+  </div>
+
+  <button onclick="backToLanding()">Back</button>
+</section>
+
+<!-- API Section -->
+<section id="api-services" style="display:none;">
+  <h2>API Services</h2>
+  <p>Placeholder for future API integrations (Data, Airtime, Electricity etc.)</p>
+  <button onclick="backToLanding()">Back</button>
+</section>
+
+<script>
+function goToAPI() {
+  document.getElementById('landing').style.display = 'none';
+  document.getElementById('api-services').style.display = 'block';
+}
+
+function goToPortfolio() {
+  document.getElementById('landing').style.display = 'none';
+  document.getElementById('portfolio').style.display = 'block';
+}
+
+function backToLanding() {
+  document.getElementById('portfolio').style.display = 'none';
+  document.getElementById('api-services').style.display = 'none';
+  document.getElementById('landing').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
