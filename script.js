@@ -17,3 +17,6 @@ document.getElementById('buy-data-btn').addEventListener('click', function() {
         alert(`Status: ${mockResponse.status}\nMessage: ${mockResponse.message}\nTransaction ID: ${mockResponse.transactionId}`);
     }, 1000);
 });
+function showSuccess() {
+  alert("✅ Status: success\nMessage: Transaction completed successfully!\nTransaction ID: TX123456789");
+}
