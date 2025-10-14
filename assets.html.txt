@@ -78,3 +78,4 @@
   <img src="assets/stickers/sticker1.png" alt="Sticker 1">
   <img src="assets/stickers/sticker2.png" alt="Sticker 2">
 </section>
+
