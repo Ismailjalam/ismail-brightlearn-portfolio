@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrightLearn — My Portfolio</title>
+  <style>
+    :root{
+      --accent:#ffcc00;
+      --accent-dark:#ffd633;
+      --bg:#06213a;
+      --muted:#cfe8ff;
+    }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, sans-serif;
+      background: linear-gradient(135deg,#06213a,#0b63b8);
+      color:#fff;
+      padding:20px;
+    }
+    h1,h2{margin-bottom:16px;}
+    .portfolio-filters{
+      margin-bottom:20px;
+    }
+    .filter-btn{
+      background:var(--accent);
+      color:#001f3f;
+      border:none;
+      padding:8px 14px;
+      margin-right:6px;
+      border-radius:8px;
+      cursor:pointer;
+      transition:all .2s;
+    }
+    .filter-btn:hover{background:var(--accent-dark);}
+    .filter-btn.active{background:var(--accent-dark);}
+    .portfolio-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:14px;
+    }
+    .portfolio-item .card{
+      background: rgba(255,255,255,0.08);
+      padding:12px;
+      border-radius:10px;
+      text-align:center;
+      color:#fff;
+      font-size:14px;
+      transition: transform 0.2s;
+    }
+    .portfolio-item .card:hover{transform:scale(1.05);}
+    footer{margin-top:40px;text-align:center;color:#d6e9ff;font-size:13px;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BrightLearn — My Portfolio</h1>
+    <p>Explore my works across Videos, Images, Graphics, and Others.</p>
+  </header>
+
+  <div class="portfolio-filters">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="videos">Videos</button>
+    <button class="filter-btn" data-category="images">Images</button>
+    <button class="filter-btn" data-category="graphics">Graphics</button>
+    <button class="filter-btn" data-category="others">Others</button>
+  </div>
+
+  <div class="portfolio-grid">
+    <div class="portfolio-item" data-category="videos"><div class="card">Video 1</div></div>
+    <div class="portfolio-item" data-category="images"><div class="card">Image 1</div></div>
+    <div class="portfolio-item" data-category="graphics"><div class="card">Graphics 1</div></div>
+    <div class="portfolio-item" data-category="others"><div class="card">Other 1</div></div>
+    <div class="portfolio-item" data-category="videos"><div class="card">Video 2</div></div>
+    <div class="portfolio-item" data-category="images"><div class="card">Image 2</div></div>
+    <div class="portfolio-item" data-category="graphics"><div class="card">Graphics 2</div></div>
+  </div>
+
+  <footer>© 2025 BrightLearn — Ismail Abdullahi Idris</footer>
+
+  <script>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', ()=>{
+        document.querySelector('.filter-btn.active').classList.remove('active');
+        btn.classList.add('active');
+        const category = btn.dataset.category;
+        portfolioItems.forEach(item=>{
+          item.style.display = (category==='all' || item.dataset.category===category) ? 'block' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
