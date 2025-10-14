@@ -1,40 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BrightLearn - Portfolio & API</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BrightLearn — Portfolio & Buy Data</title>
+
+  <!-- Hybrid styling (clean + eye-catching) -->
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+    :root{
+      --accent:#ffcc00;
+      --accent-dark:#ffd633;
+      --bg1:#06213a;
+      --bg2:#0b63b8;
+      --glass: rgba(255,255,255,0.06);
+      --muted: #cfe8ff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;}
+    html,body{height:100%}
+    body{
+      min-height:100vh;
+      background: linear-gradient(135deg,var(--bg1), var(--bg2));
+      color:#fff;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:36px 16px;
+      gap:20px;
     }
 
-    body {
-      background: linear-gradient(135deg, #001f3f, #0074D9);
-      color: white;
-      min-height: 100vh;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    /* container */
+    .container{
+      width:100%;
+      max-width:1100px;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:start;
     }
 
-    header {
-      padding: 40px 20px;
+    /* left: content / portfolio */
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius:14px;
+      padding:28px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+      backdrop-filter: blur(6px);
     }
 
-    header h1 {
-      font-size: 2.8em;
-      font-weight: 700;
-      margin-bottom: 10px;
+    header h1{font-size:28px;margin-bottom:6px}
+    header p{color:var(--muted);margin-bottom:18px}
+
+    .projects {display:grid;gap:12px}
+    .card{
+      background: rgba(0,0,0,0.18);
+      padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);
+    }
+    .card h3{font-size:16px;margin-bottom:6px}
+    .card p{color: #dbeeff;font-size:14px;line-height:1.3}
+
+    .resources{margin-top:18px}
+    .resources ul{list-style:none;margin-top:10px}
+    .resources li{padding:8px 0;color:var(--muted)}
+
+    /* right: actions / API box */
+    .side {
+      position:relative;
+      padding:20px;border-radius:12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,0.04);
     }
 
-    header p {
-      font-size: 1.2em;
+    .side h2{margin-bottom:8px}
+    .muted{color:var(--muted);font-size:14px;margin-bottom:10px}
+
+    /* form */
+    .form-row{display:flex;gap:8px;margin-bottom:10px}
+    .form-row input, .form-row select {
+      flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.14); color: #fff; outline:none;
+    }
+    .form-row input::placeholder{color:rgba(255,255,255,0.5)}
+
+    .btn{
+      display:inline-block;
+      background:var(--accent);
+      color:#001f3f;
+      padding:10px 16px;border-radius:10px;
+      border:none;font-weight:700;cursor:pointer;
+      transition:all .18s ease;
+    }
+    .btn:hover{background:var(--accent-dark); transform:translateY(-2px)}
+
+    .status{
+      margin-top:12px;padding:12px;border-radius:8px;background:rgba(0,0,0,0.2);
+      color:#fff;font-size:14px;min-height:44px;display:flex;align-items:center;
+    }
+
+    .status.success{border-left:4px solid #2ecc71}
+    .status.error{border-left:4px solid #ff4d4d}
+    .status.info{border-left:4px solid #ffd633;color:var(--muted)}
+
+    footer{margin-top:18px;color:#d6e9ff;font-size:13px;text-align:center;grid-column:1/-1}
+    @media(max-width:980px){
+      .container{grid-template-columns:1fr; padding-bottom:40px}
+      body{padding:20px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- LEFT: Portfolio / content -->
+    <div class="panel">
+      <header>
+        <h1>Welcome to BrightLearn!</h1>
+        <p>UI/UX • Video Editing • Graphics • Ebooks — portfolio & instant digital purchases.</p>
+      </header>
+
+      <section class="projects">
+        <div class="card">
+          <h3>Project 1 — UI Design Sample</h3>
+          <p>High-fidelity mobile UI for an education app — interaction-driven and accessible.</p>
+        </div>
+        <div class="card">
+          <h3>Project 2 — Video Editing Showcase</h3>
+          <p>Short-form promotional video edits highlighting pacing and sound design.</p>
+        </div>
+        <div class="card">
+          <h3>Project 3 — E-book Design</h3>
+          <p>Layout and cover design for technical e-books, optimized for both print and PDF.</p>
+        </div>
+      </section>
+
+      <section class="resources">
+        <h3 style="margin-top:14px;color:var(--muted)">Resources</h3>
+        <ul>
+          <li>📘 Ebooks & Presentations — Downloadable PDFs</li>
+          <li>🎨 Stickers & Graphics — Ready for clients</li>
+          <li>🎞️ Video Editing — Demo reels</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- RIGHT: Actions / API -->
+    <aside class="side">
+      <h2>Buy Data / Airtime</h2>
+      <div class="muted">Fast checkout — enter details and press Purchase</div>
+
+      <!-- Form: network / plan / phone / amount -->
+      <div style="margin-bottom:10px">
+        <div class="form-row">
+          <select id="network">
+            <option value="MTN">MTN</option>
+            <option value="AIRTEL">AIRTEL</option>
+            <option value="GLO">GLO</option>
+            <option value="9MOBILE">9MOBILE</option>
+          </select>
+          <select id="plan">
+            <option value="1GB">1GB</option>
+            <option value="2GB">2GB</option>
+            <option value="5GB">5GB</option>
+            <option value="10GB">10GB</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <input id="phone" type="tel" placeholder="08012345678" />
+          <input id="amount" type="number" placeholder="Amount (NGN)" />
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;align-items:center;">
+        <button id="purchaseBtn" class="btn">Purchase</button>
+        <button id="demoBtn" class="btn" style="background:transparent;color:var(--accent);border:1px solid rgba(255,255,255,0.08)">Demo</button>
+      </div>
+
+      <div id="statusBox" class="status info">Ready — fill fields and press Purchase.</div>
+
+      <div style="margin-top:12px;font-size:13px;color:var(--muted)">
+        <strong>Note:</strong> For production, move API key to server-side for security.
+      </div>
+    </aside>
+
+    <footer>© 2025 BrightLearn — Ismail Abdullahi Idris</footer>
+  </div>
+
+  <!-- JavaScript: real fetch + demo fallback + UI updates -->
+  <script>
+    (function(){
+      // ====== CONFIG — update if endpoint differs ======
+      const API_ENDPOINT = 'https://maskawasub.com/api/data'; // if your provider uses different path, change here
+      const API_TOKEN = '00f7d2a19bc3e516650133890cc4478034db0014'; // you provided this token
+
+      // DOM
+      const purchaseBtn = document.getElementById('purchaseBtn');
+      const demoBtn = document.getElementById('demoBtn');
+      const statusBox = document.getElementById('statusBox');
+      const networkEl = document.getElementById('network');
+      const planEl = document.getElementById('plan');
+      const phoneEl = document.getElementById('phone');
+      const amountEl = document.getElementById('amount');
+
+      function setStatus(text, type='info') {
+        statusBox.className = 'status ' + (type==='success' ? 'success' : type==='error' ? 'error' : 'info');
+        statusBox.textContent = text;
+      }
+
+      function validateInputs() {
+        const phone = phoneEl.value.trim();
+        const amount = amountEl.value.trim();
+        if (!phone) { setStatus('Please enter phone number', 'error'); return false; }
+        if (!/^\d{7,15}$/.test(phone.replace(/^0/,'').replace(/\D/g,'')) && !/^\d{10,15}$/.test(phone)) {
+          // basic phone check (allow local formats)
+          // we'll be lenient, just require digits
+        }
+        if (!amount || Number(amount) <= 0) { setStatus('Please enter valid amount', 'error'); return false; }
+        return true;
+      }
+
+      // === Demo behavior (no network call) ===
+      demoBtn.addEventListener('click', function(){
+        setStatus('Simulating transaction...', 'info');
+        setTimeout(()=> {
+          setStatus('✅ Demo: Transaction completed successfully! Transaction ID: DEMO-'+Math.floor(Math.random()*900000+100000), 'success');
+        }, 900);
+      });
+
+      // === Real purchase call ===
+      purchaseBtn.addEventListener('click', function(){
+        if (!validateInputs()) return;
+        setStatus('⏳ Sending request — processing...', 'info');
+        purchaseBtn.disabled = true;
+
+        const payload = {
+          network: networkEl.value,
+          plan: planEl.value,
+          phone: phoneEl.value.trim(),
+          amount: amountEl.value.trim()
+        };
+
+        // Fetch POST
+        fetch(API_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + API_TOKEN
+          },
+          body: JSON.stringify(payload)
+        })
+        .then(async res => {
+          let json;
+          try { json = await res.json(); } catch(e) { json = null; }
+          purchaseBtn.disabled = false;
+          // HTTP-level check
+          if (!res.ok) {
+            // show server message if present
+            const msg = (json && (json.message || json.error)) || `HTTP ${res.status} Error`;
+            setStatus('❌ Transaction failed — ' + msg, 'error');
+            return;
+          }
+          // Now examine json payload
+          // many providers return {status:'success', message:'...', transactionId:'...'} etc.
+          if (json && (json.status === 'success' || json.success === true || json.code === 200)) {
+            const mid = json.transactionId || json.txid || json.data && json.data.transactionId || 'N/A';
+            setStatus('✅ Transaction successful! ID: ' + mid, 'success');
+          } else {
+            const msg = (json && (json.message || json.error || JSON.stringify(json))) || 'Unknown response';
+            setStatus('❌ Transaction failed — ' + msg, 'error');
+          }
+        })
+        .catch(err => {
+          purchaseBtn.disabled = false;
+          // CORS or network errors show here
+          setStatus('⚠️ Network error: ' + err.message + ' — if this persists, API likely blocks browser requests (CORS). Use server-side proxy.', 'error');
+        });
+      });
+
+    })();
+  </script>
+</body>
+</html>      font-size: 1.2em;
       color: #cce0ff;
       margin-bottom: 25px;
     }
