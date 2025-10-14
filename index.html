@@ -1,40 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BrightLearn — Portfolio & Data</title>
-<style>
-:root {
-  --accent: #ffcc00;
-  --accent-dark: #ffd633;
-  --bg: #001f3f;
-  --text: #eaf6ff;
-  --muted: #9fb9d4;
-  --card-bg: rgba(255,255,255,0.05);
-  --success: #2ecc71;
-  --error: #ff4d4d;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrightLearn - Smart Access</title>
 
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle at top, #002b5c, #000814);
-  color: var(--text);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #0d1117, #1b263b, #0d1117);
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-/* Container */
-.container {
-  display: grid;
-  grid-template-columns: 2fr 1.1fr;
-  gap: 30px;
-  width: 100%;
-  max-width: 1100px;
-}
+    h1 {
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #d1d1d1;
+      font-size: 1rem;
+      margin-bottom: 40px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .buy-btn {
+      background: linear-gradient(90deg, #00f2fe, #4facfe);
+    }
+
+    .portfolio-btn {
+      background: linear-gradient(90deg, #43e97b, #38f9d7);
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      color: #888;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Welcome to BrightLearn</h1>
+  <p>Buy Data Instantly or Explore My Creative Portfolio</p>
+
+  <div class="buttons">
+    <button class="btn buy-btn" onclick="buyData()">💳 Buy Data</button>
+    <button class="btn portfolio-btn" onclick="viewPortfolio()">📁 My Portfolio</button>
+  </div>
+
+  <footer>© 2025 BrightLearn by Ismail Abdullahi Idris</footer>
+
+  <script>
+    function buyData() {
+      alert("Transaction Successful ✅");
+      // a nan zaka iya saka API link dinka daga baya
+    }
+
+    function viewPortfolio() {
+      window.location.href = "https://ismailjalam.github.io/ismail-brightlearn-portfolio/";
+    }
+  </script>
+</body>
+</html>}
 
 /* Left Side */
 .panel {
