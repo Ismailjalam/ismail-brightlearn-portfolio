@@ -20,3 +20,6 @@ document.getElementById('buy-data-btn').addEventListener('click', function() {
 function showSuccess() {
   alert("✅ Status: success\nMessage: Transaction completed successfully!\nTransaction ID: TX123456789");
 }
+function showSuccess() {
+  alert("Status: success\nMessage: Transaction completed successfully!\nTransaction ID: TX123456789");
+}
