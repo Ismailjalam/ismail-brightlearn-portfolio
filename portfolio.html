@@ -1,173 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BrightLearn — Portfolio</title>
-  <style>
-    :root{
-      --accent:#ffcc00;
-      --accent-dark:#ffd633;
-      --bg1:#001f3f;
-      --bg2:#0056b3;
-      --text:#ffffff;
-      --muted:#cce0ff;
-      --card-bg: rgba(0,0,0,0.2);
-    }
-
-    *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;}
-
-    body{
-      min-height:100vh;
-      background: linear-gradient(135deg, var(--bg1), var(--bg2));
-      color: var(--text);
-      display:flex;
-      justify-content:center;
-      padding:20px;
-    }
-
-    .container{
-      max-width:1100px;
-      width:100%;
-      display:grid;
-      gap:30px;
-      grid-template-columns:1fr;
-    }
-
-    header{
-      text-align:center;
-      padding:40px 20px;
-    }
-    header h1{
-      font-size:2.4em;
-      margin-bottom:10px;
-    }
-    header p{
-      color:var(--muted);
-      font-size:1.1em;
-    }
-
-    .category{
-      margin-top:20px;
-    }
-    .category h2{
-      font-size:1.6em;
-      margin-bottom:12px;
-      border-bottom: 2px solid var(--accent);
-      display:inline-block;
-      padding-bottom:4px;
-    }
-
-    .items{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-      gap:16px;
-      margin-top:12px;
-    }
-
-    .card{
-      background: var(--card-bg);
-      padding:12px;
-      border-radius:12px;
-      text-align:center;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .card:hover{
-      transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-    }
-    .card img{
-      max-width:100%;
-      border-radius:8px;
-      margin-bottom:8px;
-    }
-    .card p{
-      color: var(--muted);
-      font-size:0.95em;
-    }
-
-    footer{
-      margin-top:40px;
-      text-align:center;
-      font-size:0.9em;
-      color:var(--muted);
-      padding-bottom:20px;
-    }
-
-    @media(max-width:600px){
-      header h1{font-size:2em;}
-      .category h2{font-size:1.4em;}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio — BrightLearn</title>
+<style>
+  body { 
+    font-family: Inter, sans-serif; 
+    background: #06213a; 
+    color: #fff; 
+    padding: 40px 16px; 
+    min-height: 100vh;
+  }
+  .container { 
+    max-width: 1000px; 
+    margin: auto; 
+  }
+  h1 { 
+    font-size: 32px; 
+    margin-bottom: 20px; 
+    text-align: center; 
+    color: #ffcc00; 
+  }
+  .portfolio-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 16px; 
+    margin-top: 20px; 
+  }
+  .portfolio-item { 
+    background: rgba(255,255,255,0.08); 
+    padding: 16px; 
+    border-radius: 8px; 
+    text-align: center; 
+    transition: transform 0.2s; 
+  }
+  .portfolio-item:hover { 
+    transform: scale(1.03); 
+  }
+  .portfolio-item img { 
+    width: 100%; 
+    border-radius: 6px; 
+    margin-bottom: 10px; 
+  }
+  .portfolio-item h4 { 
+    margin: 0; 
+    font-size: 18px; 
+    color: #ffd633; 
+  }
+  @media(max-width:700px){ 
+    .portfolio-grid { grid-template-columns: 1fr; } 
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>BrightLearn Portfolio</h1>
-      <p>Explore my projects in Videos, Images, Graphics, and Others</p>
-    </header>
-
-    <!-- Videos Section -->
-    <div class="category">
-      <h2>Videos</h2>
-      <div class="items">
-        <div class="card">
-          <img src="https://via.placeholder.com/200x120.png?text=Video+1" alt="Video 1">
-          <p>Short-form promotional video edit</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/200x120.png?text=Video+2" alt="Video 2">
-          <p>Educational video montage</p>
-        </div>
-      </div>
+<div class="container">
+  <h1>My Portfolio</h1>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/300x150?text=Video+1" alt="Video">
+      <h4>Videos</h4>
     </div>
-
-    <!-- Images Section -->
-    <div class="category">
-      <h2>Images</h2>
-      <div class="items">
-        <div class="card">
-          <img src="https://via.placeholder.com/200x120.png?text=Image+1" alt="Image 1">
-          <p>Photography & edited visuals</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/200x120.png?text=Image+2" alt="Image 2">
-          <p>Marketing campaign graphics</p>
-        </div>
-      </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/300x150?text=Image+1" alt="Image">
+      <h4>Images</h4>
     </div>
-
-    <!-- Graphics Section -->
-    <div class="category">
-      <h2>Graphics</h2>
-      <div class="items">
-        <div class="card">
-          <img src="https://via.placeholder.com/200x120.png?text=Graphic+1" alt="Graphic 1">
-          <p>Logo and branding design</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/200x120.png?text=Graphic+2" alt="Graphic 2">
-          <p>Illustrations for clients</p>
-        </div>
-      </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/300x150?text=Graphics+1" alt="Graphics">
+      <h4>Graphics</h4>
     </div>
-
-    <!-- Others Section -->
-    <div class="category">
-      <h2>Others</h2>
-      <div class="items">
-        <div class="card">
-          <img src="https://via.placeholder.com/200x120.png?text=Other+1" alt="Other 1">
-          <p>E-book layouts and covers</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/200x120.png?text=Other+2" alt="Other 2">
-          <p>Miscellaneous projects</p>
-        </div>
-      </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/300x150?text=Other+1" alt="Other">
+      <h4>Others</h4>
     </div>
-
-    <footer>© 2025 BrightLearn — Ismail Abdullahi Idris</footer>
   </div>
+</div>
 </body>
 </html>
