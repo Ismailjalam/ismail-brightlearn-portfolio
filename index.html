@@ -4,20 +4,94 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BrightLearn Portfolio</title>
+  <style>
+    /* 🌈 General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-  <!-- 🌈 Linking the CSS -->
-  <link rel="stylesheet" href="style.css" />
+    /* 🌄 Body Background */
+    body {
+      background: linear-gradient(135deg, #001f3f, #0074D9);
+      color: white;
+      min-height: 100vh;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 🏠 Header */
+    header {
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #cce0ff;
+      margin-bottom: 25px;
+    }
+
+    /* 🔘 Buttons */
+    button {
+      background: #ffcc00;
+      color: #001f3f;
+      border: none;
+      padding: 14px 28px;
+      margin: 8px;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #ffd633;
+      transform: scale(1.05);
+    }
+
+    /* 📦 Section */
+    section {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      width: 90%;
+      max-width: 700px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 💬 Footer */
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+  </style>
 </head>
-
 <body>
   <header>
     <h1>Welcome to BrightLearn!</h1>
     <p>Explore my portfolio or buy data instantly.</p>
-    <button onclick="showSuccess()">Buy Data</button>
-    <button>View My Portfolio</button>
   </header>
 
-  <section>
+  <div>
+    <button onclick="buyData()">Buy Data</button>
+    <button onclick="viewPortfolio()">View My Portfolio</button>
+  </div>
+
+  <section id="content">
     <h2>Featured Projects</h2>
     <p>Project 1 — UI Design Sample</p>
     <p>Project 2 — Video Editing Showcase</p>
@@ -28,7 +102,14 @@
     <p>© 2025 BrightLearn by Ismail Abdullahi Idris</p>
   </footer>
 
-  <!-- ⚡ Linking the JavaScript -->
-  <script src="script.js"></script>
+  <script>
+    function buyData() {
+      alert("Status: success\nMessage: Transaction completed successfully!\nTransaction ID: TX123456789");
+    }
+
+    function viewPortfolio() {
+      alert("Opening portfolio section... 🚀");
+    }
+  </script>
 </body>
 </html>
