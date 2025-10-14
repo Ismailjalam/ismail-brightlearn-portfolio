@@ -1,0 +1,74 @@
+<section id="hero">
+    <h1>BrightLearn</h1>
+    <p>About Me: I create UI/UX designs, videos, graphics, and more.</p>
+    <button>Contact Me</button>
+    <button>Projects</button>
+</section>
+
+<section id="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="projects-gallery">
+        <div class="project-card">Project 1</div>
+        <div class="project-card">Project 2</div>
+        <div class="project-card">Project 3</div>
+        <div class="project-card">Project 4</div>
+        <div class="project-card">Project 5</div>
+        <div class="project-card">Project 6</div>
+    </div>
+    <p class="cta">See more projects on my portfolio page →</p>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials">
+    <h2>What People Say</h2>
+    <div class="testimonial-cards">
+        <div class="testimonial-card">
+            <p>"BrightLearn is amazing! Highly recommend."</p>
+            <h4>– Person 1</h4>
+        </div>
+        <div class="testimonial-card">
+            <p>"Professional work and very creative."</p>
+            <h4>– Person 2</h4>
+        </div>
+        <div class="testimonial-card">
+            <p>"Delivered on time and exceeded expectations."</p>
+            <h4>– Person 3</h4>
+        </div>
+        <div class="testimonial-card">
+            <p>"Excellent collaboration and results."</p>
+            <h4>– Person 4</h4>
+        </div>
+    </div>
+</section>
+<!-- Contact Section -->
+<section id="contact">
+    <h2>Get in Touch</h2>
+    <p>Have a project or question? Send a message—I'll reply within 48 hours.</p>
+    <form>
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+<!-- Footer Section -->
+<footer>
+    <p>© 2025 BrightLearn. All rights reserved.</p>
+    <p>Privacy Policy | Terms of Service | Twitter | LinkedIn</p>
+</footer>
+
+<link rel="stylesheet" href="styles.css">
+
+<!-- Link CSS -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- Link Image -->
+<img src="assets/images/project1.png" alt="Project 1">
+
+<!-- Link Video -->
+<video controls>
+  <source src="assets/videos/video1.mp4" type="video/mp4">
+</video>
+
+<!-- Link PDF -->
+<a href="assets/ebooks/ebook1.pdf" target="_blank">Download Ebook</a>
