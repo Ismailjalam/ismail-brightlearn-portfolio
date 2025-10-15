@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - BrightLearn</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin:0; padding:0; }
+        header { background-color: #007bff; color: white; padding: 20px; text-align: center; }
+        header h1 { margin: 0; }
+        header p { margin: 10px 0 0; line-height: 1.5; }
+        .categories { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
+        .category { background: #fff; margin: 10px; padding: 20px; border-radius: 10px; width: 200px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; }
+        .category:hover { transform: translateY(-5px); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    </style>
 </head>
 <body>
-  <h1>My Portfolio</h1>
-  <nav>
-    <a href="videos.html"><button>Videos</button></a>
-    <a href="images.html"><button>Images</button></a>
-    <a href="graphics.html"><button>Graphics</button></a>
-    <a href="others.html"><button>Others</button></a>
-  </nav>
-  <a href="../index.html"><button>Back to Home</button></a>
+
+    <!-- About Me Section -->
+    <header>
+        <h1>Isma'il Abdullahi Idris</h1>
+        <p>UX/UI Designer & Content Creator</p>
+        <p>
+            My background, which combines hands-on field experience in a demanding sales role with a solid academic foundation and growing technical skills in UI/UX Design has equipped me with a unique perspective and a strong work ethic that I believe are aligned with Your Mission in the Field.
+        </p>
+        <p>
+            While I thrived in the fast-paced sales environment, my passion for problem-solving and analysis led me to pursue skills beyond my immediate role. I have developed an intermediate proficiency in MS Excel, Open AI, Python and Power BI, tools I have used for data manipulation and visualization. This technical aptitude, combined with the logical thinking and attention to detail required for my Bachelor's degree in Agricultural Science, positions me to handle data-oriented tasks, prepare reports, and contribute to process improvements within your team.
+        </p>
+    </header>
+
+    <!-- Portfolio Categories -->
+    <div class="categories">
+        <div class="category" onclick="alert('Go to Videos')">Videos</div>
+        <div class="category" onclick="alert('Go to Images')">Images</div>
+        <div class="category" onclick="alert('Go to Graphics')">Graphics</div>
+        <div class="category" onclick="alert('Go to Others')">Others</div>
+    </div>
+
 </body>
 </html>
