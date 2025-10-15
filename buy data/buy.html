@@ -1,60 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buy Data - BrightLearn</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; }
-        .container { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 300px; }
-        h2 { text-align: center; margin-bottom: 20px; }
-        input, select, button { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
-        button { background-color: #007bff; color: #fff; border: none; cursor: pointer; }
-        button:hover { background-color: #0056b3; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buy Data</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; }
+.container { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 300px; }
+input, select, button { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
+button { background-color: #007bff; color: #fff; border: none; cursor: pointer; }
+button:hover { background-color: #0056b3; }
+#status { text-align: center; margin-top: 10px; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h2>Buy Data</h2>
-        <form id="buyDataForm">
-            <label for="network">Network</label>
-            <select id="network" required>
-                <option value="">Select Network</option>
-                <option value="MTN">MTN</option>
-                <option value="Airtel">Airtel</option>
-                <option value="Glo">Glo</option>
-                <option value="9mobile">9mobile</option>
-            </select>
 
-            <label for="plan">Data Plan</label>
-            <input type="text" id="plan" placeholder="e.g., 1GB" required>
+<div class="container">
+<h2>Buy Data</h2>
+<form id="buyDataForm">
+<select id="network" required>
+<option value="">Select Network</option>
+<option value="MTN">MTN</option>
+<option value="Airtel">Airtel</option>
+<option value="Glo">Glo</option>
+<option value="9mobile">9mobile</option>
+</select>
+<input type="text" id="plan" placeholder="e.g., 1GB" required>
+<input type="tel" id="phone" placeholder="08012345678" required>
+<input type="number" id="amount" placeholder="1000" required>
+<button type="submit">Purchase</button>
+</form>
+<p id="status"></p>
+</div>
 
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="08012345678" required>
+<script>
+document.getElementById('buyDataForm').addEventListener('submit', function(e){
+e.preventDefault();
+const network = document.getElementById('network').value;
+const plan = document.getElementById('plan').value;
+const phone = document.getElementById('phone').value;
+const amount = document.getElementById('amount').value;
 
-            <label for="amount">Amount (₦)</label>
-            <input type="number" id="amount" placeholder="1000" required>
+// VTpass API Endpoint (Sandbox for testing)
+const apiUrl = 'https://sandbox.vtpass.com/api/pay';
+// Saka Public & Secret Key naka
+const publicKey = 'YOUR_PUBLIC_KEY';
+const secretKey = 'YOUR_SECRET_KEY';
 
-            <button type="submit">Purchase</button>
-        </form>
-        <p id="status" style="text-align:center; color:green;"></p>
-    </div>
+// Generate request_id (unique per request)
+const requestId = 'req-' + Date.now();
 
-    <script>
-        document.getElementById('buyDataForm').addEventListener('submit', function(e){
-            e.preventDefault();
+fetch(apiUrl, {
+method: 'POST',
+headers: {
+'X-Token': publicKey,
+'X-Secret': secretKey,
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({
+serviceID: network.toLowerCase() + '-data', // e.g., mtn-data
+variation_code: plan,  // e.g., mtn-10mb-100
+phone: phone,
+amount: amount,
+request_id: requestId
+})
+})
+.then(response => response.json())
+.then(data => {
+const status = document.getElementById('status');
+if(data.response_description === '000'){
+status.style.color = 'green';
+status.innerText = 'Purchase successful!';
+} else {
+status.style.color = 'red';
+status.innerText = 'Purchase failed: ' + (data.content.message || 'Try again');
+}
+})
+.catch(error => {
+const status = document.getElementById('status');
+status.style.color = 'red';
+status.innerText = 'Error: ' + error.message;
+});
+});
+</script>
 
-            const network = document.getElementById('network').value;
-            const plan = document.getElementById('plan').value;
-            const phone = document.getElementById('phone').value;
-            const amount = document.getElementById('amount').value;
-
-            // TODO: Replace below with your API call
-            console.log({ network, plan, phone, amount });
-
-            // Simulated success message
-            document.getElementById('status').innerText = `Purchase request sent for ${plan} on ${network} to ${phone}`;
-        });
-    </script>
 </body>
 </html>
