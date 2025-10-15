@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrightLearn — Buy Data</title>
+
+  <style>
+    :root {
+      --accent: #ffcc00;
+      --accent-dark: #ffd633;
+      --bg: #06213a;
+      --muted: #cfe8ff;
+    }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: linear-gradient(135deg, #06213a, #0b63b8);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      padding: 40px 16px;
+    }
+    .container {
+      max-width: 500px;
+      width: 100%;
+      background: rgba(255,255,255,0.03);
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+      backdrop-filter: blur(6px);
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    p { color: var(--muted); margin-bottom: 18px; }
+    .form-row { display: flex; gap: 8px; margin-bottom: 10px; }
+    .form-row input, .form-row select {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.14);
+      color: #fff;
+      outline: none;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #001f3f;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+    .btn:hover { background: var(--accent-dark); transform: translateY(-2px); }
+    .status {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      background: rgba(0,0,0,0.2);
+      color: #fff;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+    .status.success { border-left: 4px solid #2ecc71; }
+    .status.error { border-left: 4px solid #ff4d4d; }
+    .status.info { border-left: 4px solid #ffd633; color: var(--muted); }
+    footer { margin-top: 18px; text-align: center; font-size: 13px; color: #d6e9ff; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Buy Data / Airtime</h1>
+    <p>Fast checkout — enter your details and press Purchase.</p>
+
+    <div class="form-row">
+      <select id="network">
+        <option value="MTN">MTN</option>
+        <option value="AIRTEL">AIRTEL</option>
+        <option value="GLO">GLO</option>
+        <option value="9MOBILE">9MOBILE</option>
+      </select>
+      <select id="plan">
+        <option value="1GB">1GB</option>
+        <option value="2GB">2GB</option>
+        <option value="5GB">5GB</option>
+        <option value="10GB">10GB</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <input id="phone" type="tel" placeholder="08012345678">
+      <input id="amount" type="number" placeholder="Amount (NGN)">
+    </div>
+
+    <button id="purchaseBtn" class="btn">Purchase</button>
+
+    <div id="statusBox" class="status info">Ready — fill fields and press Purchase.</div>
+
+    <footer>© 2025 BrightLearn — Ismail Abdullahi Idris</footer>
+  </div>
+
+  <script>
+    (function(){
+      const API_ENDPOINT = 'YOUR_API_ENDPOINT';
+      const API_TOKEN = 'YOUR_API_TOKEN';
+
+      const purchaseBtn = document.getElementById('purchaseBtn');
+      const statusBox = document.getElementById('statusBox');
+      const networkEl = document.getElementById('network');
+      const planEl = document.getElementById('plan');
+      const phoneEl = document.getElementById('phone');
+      const amountEl = document.getElementById('amount');
+
+      function setStatus(text, type='info') {
+        statusBox.className = 'status ' + type;
+        statusBox.textContent = text;
+      }
+
+      purchaseBtn.addEventListener('click', function(){
+        const payload = {
+          network: networkEl.value,
+          plan: planEl.value,
+          phone: phoneEl.value.trim(),
+          amount: amountEl.value.trim()
+        };
+        setStatus('⏳ Sending request...', 'info');
+
+        fetch(API_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + API_TOKEN
+          },
+          body: JSON.stringify(payload)
+        })
+        .then(res => res.json())
+        .then(json => {
+          if(json.status==='success') {
+            setStatus('✅ Transaction successful! ID: ' + (json.transactionId || 'N/A'), 'success');
+          } else {
+            setStatus('❌ Transaction failed — ' + (json.message || 'Unknown'), 'error');
+          }
+        })
+        .catch(err => {
+          setStatus('⚠️ Network error: ' + err.message, 'error');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
