@@ -74,8 +74,115 @@
   </div>
 
   <aside class="side">
-    <h2>Buy Data / Airtime</h2>
-    <div class="status info">Ready — fill fields and press Purchase.</div>
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buy Data</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; }
+.container { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 320px; }
+input, select, button { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
+button { background-color: #007bff; color: #fff; border: none; cursor: pointer; }
+button:hover { background-color: #0056b3; }
+#status { text-align: center; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>Buy Data</h2>
+<form id="buyDataForm">
+<select id="network" required>
+<option value="">Select Network & Plan</option>
+
+<!-- MTN Plans -->
+<option value="mtn-data" data-plan="mtn-100mb-100">MTN - 100MB - 24hrs</option>
+<option value="mtn-data" data-plan="mtn-250mb-200">MTN - 250MB - 3days</option>
+<option value="mtn-data" data-plan="mtn-500mb-300">MTN - 500MB - 7days</option>
+<option value="mtn-data" data-plan="mtn-1gb-500">MTN - 1GB - 30days</option>
+
+<!-- Airtel Plans -->
+<option value="airtel-data" data-plan="airtel-100mb-100">Airtel - 100MB - 24hrs</option>
+<option value="airtel-data" data-plan="airtel-250mb-200">Airtel - 250MB - 3days</option>
+<option value="airtel-data" data-plan="airtel-500mb-300">Airtel - 500MB - 7days</option>
+<option value="airtel-data" data-plan="airtel-1gb-500">Airtel - 1GB - 30days</option>
+
+<!-- Glo Plans -->
+<option value="glo-data" data-plan="glo-100mb-100">Glo - 100MB - 24hrs</option>
+<option value="glo-data" data-plan="glo-250mb-200">Glo - 250MB - 3days</option>
+<option value="glo-data" data-plan="glo-500mb-300">Glo - 500MB - 7days</option>
+<option value="glo-data" data-plan="glo-1gb-500">Glo - 1GB - 30days</option>
+
+<!-- 9mobile Plans -->
+<option value="9mobile-data" data-plan="9mobile-100mb-100">9mobile - 100MB - 24hrs</option>
+<option value="9mobile-data" data-plan="9mobile-250mb-200">9mobile - 250MB - 3days</option>
+<option value="9mobile-data" data-plan="9mobile-500mb-300">9mobile - 500MB - 7days</option>
+<option value="9mobile-data" data-plan="9mobile-1gb-500">9mobile - 1GB - 30days</option>
+
+</select>
+
+<input type="tel" id="phone" placeholder="09095263835" required>
+<label>
+<input type="checkbox" id="ported" checked> Ported Number
+</label>
+<button type="submit">Purchase</button>
+</form>
+<p id="status"></p>
+</div>
+
+<script>
+document.getElementById('buyDataForm').addEventListener('submit', function(e){
+e.preventDefault();
+
+const networkSelect = document.getElementById('network');
+const network = networkSelect.value;
+const plan = networkSelect.options[networkSelect.selectedIndex].dataset.plan;
+const phone = document.getElementById('phone').value;
+const ported = document.getElementById('ported').checked;
+
+// Masked token (best to store in backend or environment variable)
+const apiToken = 'MASKED_API_TOKEN';
+
+// Maskawasub API endpoint
+const apiUrl = 'https://www.maskawasub.com/api/data/';
+
+fetch(apiUrl, {
+method: 'POST',
+headers: {
+'Authorization': 'Token ' + apiToken,
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({
+network: network,
+mobile_number: phone,
+plan: plan,
+Ported_number: ported
+})
+})
+.then(response => response.json())
+.then(data => {
+const status = document.getElementById('status');
+if(!data.error){
+status.style.color = 'green';
+status.innerText = 'Purchase successful!';
+} else {
+status.style.color = 'red';
+status.innerText = 'Purchase failed: ' + data.message;
+}
+})
+.catch(error => {
+const status = document.getElementById('status');
+status.style.color = 'red';
+status.innerText = 'Error: ' + error.message;
+});
+});
+</script>
+
+</body>
+</html>
+
     <div class="form-row"><select id="network"><option>MTN</option><option>AIRTEL</option><option>GLO</option><option>9MOBILE</option></select>
 </div>
 <footer>© 2025 BrightLearn — Ismail Abdullahi Idris</footer>
