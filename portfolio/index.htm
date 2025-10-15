@@ -14,24 +14,32 @@
     header {
         background-color: #007bff;
         color: white;
-        padding: 40px 20px 20px 20px;
         text-align: center;
+        padding: 40px 20px 20px 20px;
     }
-    header h1 {
-        margin: 0 0 10px 0;
+    .about-me {
+        background: #ffffff;
+        color: #333;
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .about-me h1 {
+        margin-top: 0;
         font-size: 2em;
+        color: #007bff;
     }
-    header h2 {
-        margin: 5px 0;
+    .about-me h2 {
+        margin: 5px 0 15px 0;
         font-weight: normal;
-        font-size: 1.2em;
+        font-size: 1.3em;
+        color: #555;
     }
-    header p {
-        margin-top: 15px;
-        line-height: 1.5;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
+    .about-me p {
+        line-height: 1.6;
+        margin-bottom: 15px;
     }
     .categories {
         display: flex;
@@ -59,6 +67,11 @@
 <body>
 
 <header>
+    <h1>My Portfolio</h1>
+</header>
+
+<!-- About Me Card -->
+<div class="about-me">
     <h1>Isma'il Abdullahi Idris</h1>
     <h2>UX/UI Designer & Content Creator</h2>
     <p>
@@ -67,8 +80,9 @@
     <p>
         While I thrived in the fast-paced sales environment, my passion for problem-solving and analysis led me to pursue skills beyond my immediate role. I have developed an intermediate proficiency in MS Excel, Open AI, Python and Power BI, tools I have used for data manipulation and visualization. This technical aptitude, combined with the logical thinking and attention to detail required for my Bachelor's degree in Agricultural Science, positions me to handle data-oriented tasks, prepare reports, and contribute to process improvements within your team.
     </p>
-</header>
+</div>
 
+<!-- Portfolio Categories -->
 <div class="categories">
     <div class="category" onclick="window.location.href='videos.html'">Videos</div>
     <div class="category" onclick="window.location.href='images.html'">Images</div>
