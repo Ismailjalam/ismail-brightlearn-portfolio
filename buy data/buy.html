@@ -1,156 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BrightLearn — Buy Data</title>
-
-  <style>
-    :root {
-      --accent: #ffcc00;
-      --accent-dark: #ffd633;
-      --bg: #06213a;
-      --muted: #cfe8ff;
-    }
-    body {
-      font-family: Inter, system-ui, sans-serif;
-      background: linear-gradient(135deg, #06213a, #0b63b8);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      padding: 40px 16px;
-    }
-    .container {
-      max-width: 500px;
-      width: 100%;
-      background: rgba(255,255,255,0.03);
-      padding: 28px;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.35);
-      backdrop-filter: blur(6px);
-    }
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-    p { color: var(--muted); margin-bottom: 18px; }
-    .form-row { display: flex; gap: 8px; margin-bottom: 10px; }
-    .form-row input, .form-row select {
-      flex: 1;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.06);
-      background: rgba(0,0,0,0.14);
-      color: #fff;
-      outline: none;
-    }
-    .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: #001f3f;
-      padding: 10px 16px;
-      border-radius: 10px;
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
-      transition: all 0.2s ease;
-    }
-    .btn:hover { background: var(--accent-dark); transform: translateY(-2px); }
-    .status {
-      margin-top: 12px;
-      padding: 12px;
-      border-radius: 8px;
-      background: rgba(0,0,0,0.2);
-      color: #fff;
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-    }
-    .status.success { border-left: 4px solid #2ecc71; }
-    .status.error { border-left: 4px solid #ff4d4d; }
-    .status.info { border-left: 4px solid #ffd633; color: var(--muted); }
-    footer { margin-top: 18px; text-align: center; font-size: 13px; color: #d6e9ff; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Data - BrightLearn</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .container { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 300px; }
+        h2 { text-align: center; margin-bottom: 20px; }
+        input, select, button { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
+        button { background-color: #007bff; color: #fff; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Buy Data / Airtime</h1>
-    <p>Fast checkout — enter your details and press Purchase.</p>
+    <div class="container">
+        <h2>Buy Data</h2>
+        <form id="buyDataForm">
+            <label for="network">Network</label>
+            <select id="network" required>
+                <option value="">Select Network</option>
+                <option value="MTN">MTN</option>
+                <option value="Airtel">Airtel</option>
+                <option value="Glo">Glo</option>
+                <option value="9mobile">9mobile</option>
+            </select>
 
-    <div class="form-row">
-      <select id="network">
-        <option value="MTN">MTN</option>
-        <option value="AIRTEL">AIRTEL</option>
-        <option value="GLO">GLO</option>
-        <option value="9MOBILE">9MOBILE</option>
-      </select>
-      <select id="plan">
-        <option value="1GB">1GB</option>
-        <option value="2GB">2GB</option>
-        <option value="5GB">5GB</option>
-        <option value="10GB">10GB</option>
-      </select>
+            <label for="plan">Data Plan</label>
+            <input type="text" id="plan" placeholder="e.g., 1GB" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="08012345678" required>
+
+            <label for="amount">Amount (₦)</label>
+            <input type="number" id="amount" placeholder="1000" required>
+
+            <button type="submit">Purchase</button>
+        </form>
+        <p id="status" style="text-align:center; color:green;"></p>
     </div>
 
-    <div class="form-row">
-      <input id="phone" type="tel" placeholder="08012345678">
-      <input id="amount" type="number" placeholder="Amount (NGN)">
-    </div>
+    <script>
+        document.getElementById('buyDataForm').addEventListener('submit', function(e){
+            e.preventDefault();
 
-    <button id="purchaseBtn" class="btn">Purchase</button>
+            const network = document.getElementById('network').value;
+            const plan = document.getElementById('plan').value;
+            const phone = document.getElementById('phone').value;
+            const amount = document.getElementById('amount').value;
 
-    <div id="statusBox" class="status info">Ready — fill fields and press Purchase.</div>
+            // TODO: Replace below with your API call
+            console.log({ network, plan, phone, amount });
 
-    <footer>© 2025 BrightLearn — Ismail Abdullahi Idris</footer>
-  </div>
-
-  <script>
-    (function(){
-      const API_ENDPOINT = 'YOUR_API_ENDPOINT';
-      const API_TOKEN = 'YOUR_API_TOKEN';
-
-      const purchaseBtn = document.getElementById('purchaseBtn');
-      const statusBox = document.getElementById('statusBox');
-      const networkEl = document.getElementById('network');
-      const planEl = document.getElementById('plan');
-      const phoneEl = document.getElementById('phone');
-      const amountEl = document.getElementById('amount');
-
-      function setStatus(text, type='info') {
-        statusBox.className = 'status ' + type;
-        statusBox.textContent = text;
-      }
-
-      purchaseBtn.addEventListener('click', function(){
-        const payload = {
-          network: networkEl.value,
-          plan: planEl.value,
-          phone: phoneEl.value.trim(),
-          amount: amountEl.value.trim()
-        };
-        setStatus('⏳ Sending request...', 'info');
-
-        fetch(API_ENDPOINT, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + API_TOKEN
-          },
-          body: JSON.stringify(payload)
-        })
-        .then(res => res.json())
-        .then(json => {
-          if(json.status==='success') {
-            setStatus('✅ Transaction successful! ID: ' + (json.transactionId || 'N/A'), 'success');
-          } else {
-            setStatus('❌ Transaction failed — ' + (json.message || 'Unknown'), 'error');
-          }
-        })
-        .catch(err => {
-          setStatus('⚠️ Network error: ' + err.message, 'error');
+            // Simulated success message
+            document.getElementById('status').innerText = `Purchase request sent for ${plan} on ${network} to ${phone}`;
         });
-      });
-    })();
-  </script>
+    </script>
 </body>
 </html>
