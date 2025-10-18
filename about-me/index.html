@@ -1,78 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Me — Ismail Abdullahi Idris</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me - BrightLearn</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: #f0f8ff;
       margin: 0;
-      padding: 0;
-    }
-    header {
-      text-align: center;
-      padding: 40px 20px;
-    }
-    header h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      color: #ffcc00;
-    }
-    header p {
-      font-size: 1.2em;
-      color: #dbeeff;
-    }
-    section {
-      max-width: 800px;
-      margin: 40px auto;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2c3e50);
+      color: #f0f4f8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 20px;
-      background: rgba(0,0,0,0.3);
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
-    section h2 {
-      color: #ffd633;
-      margin-bottom: 15px;
+
+    h1 {
+      color: #ffd700;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
     }
-    section p {
-      line-height: 1.6;
-      font-size: 1.1em;
-      margin-bottom: 12px;
-    }
-    footer {
+
+    .about-content {
+      max-width: 700px;
+      margin: 20px 0;
       text-align: center;
+      line-height: 1.7;
+    }
+
+    .comment-box {
+      margin-top: 40px;
+      background: rgba(255, 255, 255, 0.1);
       padding: 20px;
-      font-size: 0.9em;
-      color: #ccc;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    textarea {
+      height: 100px;
+      resize: none;
+    }
+
+    button {
+      background-color: #ffd700;
+      color: #1a1a1a;
+      font-weight: 700;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ffea75;
+      transform: scale(1.05);
+    }
+
+    a.back-home {
+      display: inline-block;
+      margin-top: 25px;
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.back-home:hover {
+      text-decoration: underline;
+    }
+
+    .success {
+      color: #90ee90;
+      margin-top: 15px;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
-
-<header>
   <h1>About Me</h1>
-  <p>Discover who I am, my skills, and my passions.</p>
-</header>
 
-<section>
-  <h2>Introduction</h2>
-  <p>My name is <strong>Ismail Abdullahi Idris</strong>. I am a creative professional specializing in UI/UX design, video editing, and graphic design. My goal is to craft engaging digital experiences that inspire and captivate audiences.</p>
+  <div class="about-content">
+    <p>My name is <strong>Ismail Abdullahi Idris</strong>, a passionate and driven individual with a degree in Agricultural Science Education from the University of Maiduguri. I am highly skilled in sales strategy, marketing, and creative problem solving. My goal is to help businesses and individuals grow through innovative ideas and digital solutions.</p>
+  </div>
 
-  <h2>Skills & Expertise</h2>
-  <p>• UI/UX Design — Mobile & Web Interfaces<br>
-     • Video Editing — Short-form, promotional, and demo reels<br>
-     • Graphic Design — Logos, marketing materials, digital assets</p>
+  <div class="comment-box">
+    <h3>Leave a Comment</h3>
+    <form name="comments" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="comments" />
+      <input type="text" name="name" placeholder="Your Name" required />
+      <textarea name="message" placeholder="Your Comment" required></textarea>
+      <button type="submit">Send</button>
+      <p class="success">Thanks! Your comment has been sent ✅</p>
+    </form>
+  </div>
 
-  <h2>Passion</h2>
-  <p>I enjoy transforming ideas into visually appealing, functional digital products. I strive for designs that are intuitive, interactive, and tailored to the user’s experience.</p>
-</section>
+  <a href="../index.html" class="back-home">← Back to Home</a>
 
-<footer>
-  © 2025 Ismail Abdullahi Idris
-</footer>
+  <script>
+    const form = document.querySelector("form");
+    const successMsg = document.querySelector(".success");
+    successMsg.style.display = "none";
 
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data).toString(),
+      })
+        .then(() => {
+          successMsg.style.display = "block";
+          form.reset();
+        })
+        .catch((error) => alert(error));
+    });
+  </script>
 </body>
 </html>
