@@ -1,6 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BrightLearn</title>
 <style>
   body {
-    background: linear-gradient(135deg, #1f1f2e, #2c3e50, #34495e); /* dark but elegant */
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2c3e50);
     color: #f0f4f8;
     display: flex;
     flex-direction: column;
@@ -9,24 +17,29 @@
   }
 
   header {
-    padding: 30px 0;
-    font-size: 2em;
+    padding: 40px 0 20px 0;
+    font-size: 2.5em;
     font-weight: 700;
-    letter-spacing: 1px;
-    color: #ffdd57; /* soft gold, more visible */
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    color: #ffdd57;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  }
+
+  .main-buttons {
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
   }
 
   .btn {
-    display: inline-block;
-    padding: 16px 32px;
-    margin: 10px;
-    border-radius: 12px;
+    padding: 18px 36px;
     font-size: 1.2em;
     font-weight: 700;
+    border-radius: 12px;
     text-decoration: none;
-    color: #1a1a1a; /* dark text for gold button */
-    background-color: #ffd700; /* brighter gold */
+    color: #1a1a1a;
+    background-color: #ffd700;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
   }
@@ -37,8 +50,9 @@
   }
 
   footer {
-    padding: 20px 0;
-    background: rgba(0,0,0,0.3);
+    margin-top: auto;
+    padding: 30px 0;
+    background: rgba(0,0,0,0.25);
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -49,7 +63,7 @@
     text-decoration: none;
     color: #ffd700;
     font-weight: 600;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: 10px;
     background: rgba(255,255,255,0.05);
     transition: all 0.3s ease;
@@ -60,163 +74,33 @@
     transform: scale(1.05);
   }
 
+  .footer-text {
+    width: 100%;
+    color: #d6e9ff;
+    margin-top: 15px;
+    font-size: 0.9em;
+  }
+
   @media(max-width:600px){
     .btn {width: 80%; font-size:1em;}
     footer {flex-direction: column; gap: 10px;}
   }
-</style>      <div class="card"><h3>Project 2 — Video Editing Showcase</h3><p>Short-form promotional video edits highlighting pacing and sound design.</p></div>
-      <div class="card"><h3>Project 3 — E-book Design</h3><p>Layout and cover design for technical e-books, optimized for both print and PDF.</p></div>
-      <h3>Resources</h3>
-      <ul>
-        <li>📘 Ebooks & Presentations — Downloadable PDFs</li>
-        <li>🎨 Stickers & Graphics — Ready for clients</li>
-        <li>🎞️ Video Editing — Demo reels</li>
-      </ul>
-    </section>
-  </div>
-
-  <aside class="side">
-   <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buy Data</title>
-<style>
-body { font-family: Arial, sans-serif; background: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; }
-.container { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 320px; }
-input, select, button { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
-button { background-color: #007bff; color: #fff; border: none; cursor: pointer; }
-button:hover { background-color: #0056b3; }
-#status { text-align: center; margin-top: 10px; }
 </style>
 </head>
 <body>
 
-<div class="container">
-<h2>Buy Data</h2>
-<form id="buyDataForm">
-<select id="network" required>
-<option value="">Select Network & Plan</option>
+<header>BrightLearn</header>
 
-<!-- MTN Plans -->
-<option value="mtn-data" data-plan="mtn-100mb-100">MTN - 100MB - 24hrs</option>
-<option value="mtn-data" data-plan="mtn-250mb-200">MTN - 250MB - 3days</option>
-<option value="mtn-data" data-plan="mtn-500mb-300">MTN - 500MB - 7days</option>
-<option value="mtn-data" data-plan="mtn-1gb-500">MTN - 1GB - 30days</option>
-
-<!-- Airtel Plans -->
-<option value="airtel-data" data-plan="airtel-100mb-100">Airtel - 100MB - 24hrs</option>
-<option value="airtel-data" data-plan="airtel-250mb-200">Airtel - 250MB - 3days</option>
-<option value="airtel-data" data-plan="airtel-500mb-300">Airtel - 500MB - 7days</option>
-<option value="airtel-data" data-plan="airtel-1gb-500">Airtel - 1GB - 30days</option>
-
-<!-- Glo Plans -->
-<option value="glo-data" data-plan="glo-100mb-100">Glo - 100MB - 24hrs</option>
-<option value="glo-data" data-plan="glo-250mb-200">Glo - 250MB - 3days</option>
-<option value="glo-data" data-plan="glo-500mb-300">Glo - 500MB - 7days</option>
-<option value="glo-data" data-plan="glo-1gb-500">Glo - 1GB - 30days</option>
-
-<!-- 9mobile Plans -->
-<option value="9mobile-data" data-plan="9mobile-100mb-100">9mobile - 100MB - 24hrs</option>
-<option value="9mobile-data" data-plan="9mobile-250mb-200">9mobile - 250MB - 3days</option>
-<option value="9mobile-data" data-plan="9mobile-500mb-300">9mobile - 500MB - 7days</option>
-<option value="9mobile-data" data-plan="9mobile-1gb-500">9mobile - 1GB - 30days</option>
-
-</select>
-
-<input type="tel" id="phone" placeholder="09095263835" required>
-<label>
-<input type="checkbox" id="ported" checked> Ported Number
-</label>
-<button type="submit">Purchase</button>
-</form>
-<p id="status"></p>
+<div class="main-buttons">
+  <a href="portfolio/index.html" class="btn">My Portfolio</a>
+  <a href="buy-data/buy.html" class="btn">Buy Data</a>
 </div>
 
-<script>
-document.getElementById('buyDataForm').addEventListener('submit', function(e){
-e.preventDefault();
+<footer>
+  <a href="about-me.html">About Me</a>
+  <a href="contact.html">Contact Me</a>
+  <div class="footer-text">© 2025 BrightLearn — Ismail Abdullahi Idris</div>
+</footer>
 
-const networkSelect = document.getElementById('network');
-const network = networkSelect.value;
-const plan = networkSelect.options[networkSelect.selectedIndex].dataset.plan;
-const phone = document.getElementById('phone').value;
-const ported = document.getElementById('ported').checked;
-
-// Masked token (best to store in backend or environment variable)
-const apiToken = 'MASKED_API_TOKEN';
-
-// Maskawasub API endpoint
-const apiUrl = 'https://www.maskawasub.com/api/data/';
-
-fetch(apiUrl, {
-method: 'POST',
-headers: {
-'Authorization': 'Token ' + apiToken,
-'Content-Type': 'application/json'
-},
-body: JSON.stringify({
-network: network,
-mobile_number: phone,
-plan: plan,
-Ported_number: ported
-})
-})
-.then(response => response.json())
-.then(data => {
-const status = document.getElementById('status');
-if(!data.error){
-status.style.color = 'green';
-status.innerText = 'Purchase successful!';
-} else {
-status.style.color = 'red';
-status.innerText = 'Purchase failed: ' + data.message;
-}
-})
-.catch(error => {
-const status = document.getElementById('status');
-status.style.color = 'red';
-status.innerText = 'Error: ' + error.message;
-});
-});
-</script>
-
-</body>
-</html>
-
-    <div class="form-row"><select id="network"><option>MTN</option><option>AIRTEL</option><option>GLO</option><option>9MOBILE</option></select>
-</div>
-<footer>© 2025 BrightLearn — Ismail Abdullahi Idris</footer>
-
-<script>
-const API_ENDPOINT = 'https://maskawasub.com/api/data'; // replace with your endpoint
-const API_TOKEN = 'YOUR_TOKEN_HERE'; // replace with your token
-
-document.getElementById('portfolioBtn').addEventListener('click', ()=>{window.location.<a href="portfolio/index.html"><button class="btn">My Portfolio</button></a> 
-document.getElementById('purchaseBtn').addEventListener('click', ()=>{
-  const network=document.getElementById('network').value;
-  const plan=document.getElementById('plan').value;
-  const phone=document.getElementById('phone').value.trim();
-  const amount=document.getElementById('amount').value.trim();
-  const statusBox=document.querySelector('.status');
-
-  if(!phone||!amount){statusBox.textContent='❌ Enter valid phone & amount';statusBox.className='status error';return;}
-
-  statusBox.textContent='⏳ Processing transaction...';statusBox.className='status info';
-
-  fetch(API_ENDPOINT,{
-    method:'POST',
-    headers:{'Content-Type':'application/json','Authorization':'Bearer '+API_TOKEN},
-    body:JSON.stringify({network,plan,phone,amount})
-  })
-  .then(res=>res.json())
-  .then(data=>{
-    if(data.status==='success'||data.success){statusBox.textContent='✅ Transaction successful! ID: '+(data.transactionId||data.txid||'N/A');statusBox.className='status success';}
-    else{statusBox.textContent='❌ Transaction failed: '+(data.message||JSON.stringify(data));statusBox.className='status error';}
-  })
-  .catch(err=>{statusBox.textContent='⚠️ Network error: '+err.message;statusBox.className='status error';});
-});
-</script>
 </body>
 </html>
