@@ -97,73 +97,22 @@
 </div>
 
 <footer>
-  <a href="about-me.html">About Me</a>
-  <a href="contact.html">Contact Me</a>
+  <a href="about/index.html">About Me</a>
+  <a href="contact-me/index.html">Contact Me</a>
   <div class="footer-text">© 2025 BrightLearn — Ismail Abdullahi Idris</div>
 </footer>
-<script>
-  const portfolioBtn = document.getElementById("portfolioBtn");
-  if (portfolioBtn) {
-    portfolioBtn.addEventListener("click", function() {
-      window.location.href = "portfolio/index.html";
-    });
-  }
-</script>
-  <script>
-  const portfolioBtn = document.getElementById("portfolioBtn");
-  const buyDataBtn = document.getElementById("buyDataBtn");
-  const aboutBtn = document.getElementById("aboutBtn");
-  const contactBtn = document.getElementById("contactBtn");
 
-  if (portfolioBtn) {
-    portfolioBtn.addEventListener("click", () => window.location.href = "portfolio/index.html");
-  }
-  if (buyDataBtn) {
-    buyDataBtn.addEventListener("click", () => window.location.href = "buy-data/buy.html");
-  }
-  if (aboutBtn) {
-    aboutBtn.addEventListener("click", () => window.location.href = "about/index.html");
-  }
-  if (contactBtn) {
-    contactBtn.addEventListener("click", () => window.location.href = "contact/index.html");
-  }
-    </script>
-  <script>
-  const contactBtn = document.getElementById("contactBtn");
-  if (contactBtn) {
-    contactBtn.addEventListener("click", function() {
-      window.location.href = "contact/index.html";
-    });
-  }
-  </script>
 <script>
+  // Linking buttons in homepage
   const portfolioBtn = document.getElementById("portfolioBtn");
-  if (portfolioBtn) {
-    portfolioBtn.addEventListener("click", function() {
-      window.location.href = "portfolio/index.html";
-    });
-  }
-
   const buyBtn = document.getElementById("buyBtn");
-  if (buyBtn) {
-    buyBtn.addEventListener("click", function() {
-      window.location.href = "buy-data/buy.html";
-    });
-  }
-
   const aboutBtn = document.getElementById("aboutBtn");
-  if (aboutBtn) {
-    aboutBtn.addEventListener("click", function() {
-      window.location.href = "about/index.html";
-    });
-  }
-
   const contactBtn = document.getElementById("contactBtn");
-  if (contactBtn) {
-    contactBtn.addEventListener("click", function() {
-      window.location.href = "contact-me/index.html";
-    });
-  }
+
+  if (portfolioBtn) portfolioBtn.addEventListener("click", () => window.location.href = "portfolio/index.html");
+  if (buyBtn) buyBtn.addEventListener("click", () => window.location.href = "buy-data/buy.html");
+  if (aboutBtn) aboutBtn.addEventListener("click", () => window.location.href = "about/index.html");
+  if (contactBtn) contactBtn.addEventListener("click", () => window.location.href = "contact-me/index.html");
 </script>
 </body>
 </html>
