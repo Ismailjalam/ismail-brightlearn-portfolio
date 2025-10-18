@@ -3,92 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Portfolio - BrightLearn</title>
+<title>BrightLearn Portfolio</title>
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
-    header {
-        background-color: #007bff;
-        color: white;
-        text-align: center;
-        padding: 40px 20px 20px 20px;
-    }
-    .about-me {
-        background: #ffffff;
-        color: #333;
-        max-width: 900px;
-        margin: 20px auto;
-        padding: 25px 30px;
-        border-radius: 15px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-    .about-me h1 {
-        margin-top: 0;
-        font-size: 2em;
-        color: #007bff;
-    }
-    .about-me h2 {
-        margin: 5px 0 15px 0;
-        font-weight: normal;
-        font-size: 1.3em;
-        color: #555;
-    }
-    .about-me p {
-        line-height: 1.6;
-        margin-bottom: 15px;
-    }
-    .categories {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 30px 10px;
-    }
-    .category {
-        background: #fff;
-        margin: 10px;
-        padding: 20px;
-        border-radius: 10px;
-        width: 180px;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        cursor: pointer;
-        transition: 0.3s;
-    }
-    .category:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+  body {
+    font-family: Arial, sans-serif;
+    background: #0d1117;
+    color: #cce0ff;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background: #161b22;
+    padding: 20px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: #ffcc00;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+  }
+  .card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .card:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-5px);
+  }
+  .card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #ffd633;
+  }
+  .card p {
+    font-size: 0.9em;
+    color: #cce0ff;
+  }
+  footer {
+    text-align: center;
+    padding: 15px;
+    background: #161b22;
+    font-size: 0.9em;
+    color: #ccc;
+  }
 </style>
 </head>
 <body>
 
-<header>
-    <h1>My Portfolio</h1>
-</header>
+<header>BrightLearn Portfolio</header>
 
-<!-- About Me Card -->
-<div class="about-me">
-    <h1>Isma'il Abdullahi Idris</h1>
-    <h2>UX/UI Designer & Content Creator</h2>
-    <p>
-        My background, which combines hands-on field experience in a demanding sales role with a solid academic foundation and growing technical skills in UI/UX Design has equipped me with a unique perspective and a strong work ethic that I believe are aligned with Your Mission in the Field.
-    </p>
-    <p>
-        While I thrived in the fast-paced sales environment, my passion for problem-solving and analysis led me to pursue skills beyond my immediate role. I have developed an intermediate proficiency in MS Excel, Open AI, Python and Power BI, tools I have used for data manipulation and visualization. This technical aptitude, combined with the logical thinking and attention to detail required for my Bachelor's degree in Agricultural Science, positions me to handle data-oriented tasks, prepare reports, and contribute to process improvements within your team.
-    </p>
+<div class="container">
+  <div class="card" onclick="location.href='#';">
+    <h3>Images</h3>
+    <p>See all images projects</p>
+  </div>
+  <div class="card" onclick="location.href='#';">
+    <h3>Videos</h3>
+    <p>See all video projects</p>
+  </div>
+  <div class="card" onclick="location.href='#';">
+    <h3>Graphics</h3>
+    <p>See all graphic designs</p>
+  </div>
+  <div class="card" onclick="location.href='#';">
+    <h3>Others</h3>
+    <p>See all other works</p>
+  </div>
 </div>
 
-<!-- Portfolio Categories -->
-<div class="categories">
-    <div class="category" onclick="window.location.href='videos.html'">Videos</div>
-    <div class="category" onclick="window.location.href='images.html'">Images</div>
-    <div class="category" onclick="window.location.href='graphics.html'">Graphics</div>
-    <div class="category" onclick="window.location.href='others.html'">Others</div>
-</div>
+<footer>© 2025 BrightLearn — Ismail Abdullahi Idris</footer>
 
 </body>
 </html>
