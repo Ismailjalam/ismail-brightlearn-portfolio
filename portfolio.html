@@ -3,38 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Portfolio — BrightLearn</title>
+<title>BrightLearn Portfolio</title>
 <style>
-  body { 
-    font-family: Inter, sans-serif; 
-    background: #06213a; 
-    color: #fff; 
-    padding: 40px 16px; 
-    min-height: 100vh;
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0a0a0f;
+    color: #fff;
+    margin: 0;
+    padding: 0;
   }
-  .container { 
-    max-width: 1000px; 
-    margin: auto; 
+  header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(90deg, #1e1e2f, #12121a);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   }
-  h1 { 
-    font-size: 32px; 
-    margin-bottom: 20px; 
-    text-align: center; 
-    color: #ffcc00; 
+  header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: #ffcc00;
   }
-  .portfolio-grid { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 16px; 
-    margin-top: 20px; 
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
   }
-  .portfolio-item { 
-    background: rgba(255,255,255,0.08); 
-    padding: 16px; 
-    border-radius: 8px; 
-    text-align: center; 
-    transition: transform 0.2s; 
+  .card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    transition: transform 0.2s, background 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
   }
+  .card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 204, 0, 0.1);
+  }
+  .card h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #ffcc00;
+  }
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: #12121a;
+    font-size: 0.9em;
+    color: #ccc;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>BrightLearn Portfolio</h1>
+</header>
+
+<main class="container">
+  <a href="images.html" class="card">
+    <h2>Images</h2>
+    <p>Click to view image projects</p>
+  </a>
+  <a href="videos.html" class="card">
+    <h2>Videos</h2>
+    <p>Click to view video projects</p>
+  </a>
+  <a href="graphics.html" class="card">
+    <h2>Graphics</h2>
+    <p>Click to view graphic designs</p>
+  </a>
+  <a href="others.html" class="card">
+    <h2>Others</h2>
+    <p>Click to view other works</p>
+  </a>
+</main>
+
+<footer>
+  © 2025 BrightLearn — Ismail Abdullahi Idris
+</footer>
+
+</body>
+</html>  }
   .portfolio-item:hover { 
     transform: scale(1.03); 
   }
