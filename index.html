@@ -109,5 +109,24 @@
     });
   }
 </script>
+  <script>
+  const portfolioBtn = document.getElementById("portfolioBtn");
+  const buyDataBtn = document.getElementById("buyDataBtn");
+  const aboutBtn = document.getElementById("aboutBtn");
+  const contactBtn = document.getElementById("contactBtn");
+
+  if (portfolioBtn) {
+    portfolioBtn.addEventListener("click", () => window.location.href = "portfolio/index.html");
+  }
+  if (buyDataBtn) {
+    buyDataBtn.addEventListener("click", () => window.location.href = "buy-data/buy.html");
+  }
+  if (aboutBtn) {
+    aboutBtn.addEventListener("click", () => window.location.href = "about/index.html");
+  }
+  if (contactBtn) {
+    contactBtn.addEventListener("click", () => window.location.href = "contact/index.html");
+  }
+    </script>
 </body>
 </html>
