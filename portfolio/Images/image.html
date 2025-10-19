@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - My Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f5f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0f172a;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .back {
+      display: block;
+      width: fit-content;
+      margin: 20px auto;
+      text-decoration: none;
+      color: white;
+      background-color: #0f172a;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    .back:hover {
+      background-color: #1e293b;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gallery</h1>
+
+  <div class="gallery">
+    <img src="img/photo1.jpg" alt="Portfolio Image 1">
+    <img src="img/photo2.jpg" alt="Portfolio Image 2">
+    <img src="img/photo3.jpg" alt="Portfolio Image 3">
+  </div>
+
+  <a class="back" href="../index.html">← Back to Portfolio</a>
+</body>
+</html>
