@@ -1,89 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Others - BrightLearn</title>
-<style>
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: #fff;
-  }
-  header {
-    text-align: center;
-    padding: 50px 20px 20px 20px;
-  }
-  header h1 {
-    font-size: 2.5em;
-    margin: 0;
-  }
-  header p {
-    font-size: 1.2em;
-    color: #cce0ff;
-    margin-top: 10px;
-  }
-
-  .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-
-  .project-card {
-    background: rgba(255,255,255,0.05);
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    font-size: 1.2em;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.3s ease, background 0.3s ease;
-  }
-
-  .project-card:hover {
-    transform: translateY(-8px);
-    background: rgba(255,255,255,0.15);
-  }
-
-  footer {
-    text-align: center;
-    padding: 20px;
-    color: #cce0ff;
-  }
-
-  @media (max-width: 600px) {
-    .project-card {
-      padding: 20px;
-      font-size: 1.1em;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UX Exercises - Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(120deg, #1e3c72, #2a5298);
+      color: #fff;
     }
-  }
-</style>
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(0,0,0,0.2);
+      backdrop-filter: blur(6px);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      letter-spacing: 1px;
+    }
+
+    #ux-exercises {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .exercise-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      margin: 20px 0;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .exercise-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .exercise-card h3 {
+      margin-bottom: 12px;
+    }
+
+    .exercise-card p {
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 25px;
+      background: #222;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #cce0ff;
+      background: rgba(0,0,0,0.1);
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>Other Projects</h1>
-  <p>Click on a project to view details</p>
-</header>
+  <header>
+    <h1>UX Exercises</h1>
+    <p>Click on a project to see its full details</p>
+  </header>
 
-<div class="projects">
-  <div class="project-card" onclick="window.location.href='ux-beginner.html'">
-    UX Beginner Project – Online Grocery App
-  </div>
-  <!-- Add more projects later -->
-</div>
+  <section id="ux-exercises">
+    <!-- First Exercise -->
+    <div class="exercise-card">
+      <h3>1. UX Beginner Project – Online Grocery App</h3>
+      <p>Start your UX journey with this beginner project</p>
+      <a href="ux-beginner.html" class="btn">View Project</a>
+    </div>
 
-<footer>
-  © 2025 BrightLearn — Ismail Abdullahi Idris
-</footer>
+    <!-- Second Exercise -->
+    <div class="exercise-card">
+      <h3>2. UX Second Exercise – Example Project</h3>
+      <p>Another project to showcase your UX skills</p>
+      <a href="ux-second.html" class="btn">View Project</a>
+    </div>
+  </section>
 
-  <div class="project-list">
-  <div class="card" onclick="window.location.href='data-dashboard.html'">Data Dashboard Project</div>
-  </div>
+  <footer>
+    © 2025 Ismail Abdullahi Idris — BrightLearn
+  </footer>
+
 </body>
 </html>
