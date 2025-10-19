@@ -1,3 +1,86 @@
-<div class="container">
-  <div class="card" onclick="window.location.href='ux-beginner.html'">UX Beginner Project – Online Grocery App</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Others - BrightLearn</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+  }
+  header {
+    text-align: center;
+    padding: 50px 20px 20px 20px;
+  }
+  header h1 {
+    font-size: 2.5em;
+    margin: 0;
+  }
+  header p {
+    font-size: 1.2em;
+    color: #cce0ff;
+    margin-top: 10px;
+  }
+
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .project-card {
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255,255,255,0.15);
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: #cce0ff;
+  }
+
+  @media (max-width: 600px) {
+    .project-card {
+      padding: 20px;
+      font-size: 1.1em;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Other Projects</h1>
+  <p>Click on a project to view details</p>
+</header>
+
+<div class="projects">
+  <div class="project-card" onclick="window.location.href='ux-beginner.html'">
+    UX Beginner Project – Online Grocery App
+  </div>
+  <!-- Add more projects later -->
 </div>
+
+<footer>
+  © 2025 BrightLearn — Ismail Abdullahi Idris
+</footer>
+
+</body>
+</html>
