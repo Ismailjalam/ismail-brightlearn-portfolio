@@ -71,6 +71,35 @@
     <div class="card" onclick="window.location.href='others/index.html'">Others</div>
   </div>
 
+  <!-- Keep your existing container and cards -->
+<div class="container">
+  <div class="card" onclick="window.location.href='images/index.html'">Images</div>
+  <div class="card" onclick="window.location.href='videos/index.html'">Videos</div>
+  <div class="card" onclick="window.location.href='graphics/index.html'">Graphics</div>
+  <div class="card" onclick="window.location.href='others/others.html'">Others</div> <!-- This points to your exercise page -->
+</div>
+
+<!-- Remove the duplicate "Others" card outside the container -->
+<!-- <div class="card" onclick="window.location.href='others/others.html'">Others</div> -->
+
+<!-- Remove the old script that targets .portfolio-categories (it doesn't exist) -->
+
+<!-- If you want, you can add a small JS snippet to ensure all Others buttons point correctly -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Update any Others card dynamically if needed
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+      if (card.textContent.trim() === "Others") {
+        card.onclick = () => {
+          window.location.href = "others/others.html"; // your exercise page
+        };
+      }
+    });
+  });
+</script>
+
+  
   <footer>
     © 2025 BrightLearn — Ismail Abdullahi Idris
   </footer>
