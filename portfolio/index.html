@@ -75,5 +75,14 @@
     © 2025 BrightLearn — Ismail Abdullahi Idris
   </footer>
 
+  <script>
+  // ✅ Make "Others" button in portfolio page open your UX Beginner Project
+  document.addEventListener("DOMContentLoaded", function () {
+    const othersBtn = document.querySelector('.portfolio-categories a.btn:last-child');
+    if (othersBtn) {
+      othersBtn.setAttribute('href', 'others.html'); // link to your exercise page
+    }
+  });
+  </script>
 </body>
 </html>
