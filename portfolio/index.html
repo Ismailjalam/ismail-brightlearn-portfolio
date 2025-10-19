@@ -104,43 +104,29 @@
       <p>View special projects like UX exercises</p>
     </div>
   </div>
-
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Check if the gallery link already exists
-    const existingLink = document.querySelector('a[href="images/index.html"]');
-
-    if (!existingLink) {
-      // Find the button section (where other project buttons are)
-      const buttons = document.querySelector("body") || document.body;
-
-      // Create a new link for Gallery
-      const galleryBtn = document.createElement("a");
-      galleryBtn.href = "images/index.html";
-      galleryBtn.textContent = "Images";
-      galleryBtn.style.display = "inline-block";
-      galleryBtn.style.margin = "10px";
-      galleryBtn.style.padding = "10px 20px";
-      galleryBtn.style.backgroundColor = "#0f172a";
-      galleryBtn.style.color = "#fff";
-      galleryBtn.style.textDecoration = "none";
-      galleryBtn.style.borderRadius = "8px";
-      galleryBtn.style.fontWeight = "bold";
-      galleryBtn.style.transition = "0.3s";
-
-      galleryBtn.onmouseover = () => galleryBtn.style.backgroundColor = "#1e293b";
-      galleryBtn.onmouseout = () => galleryBtn.style.backgroundColor = "#0f172a";
-
-      // Append it below other buttons
-      buttons.appendChild(galleryBtn);
-    }
-  });
-  </script>
-
-
   <footer>
     © 2025 BrightLearn — Ismail Abdullahi Idris
   </footer>
 
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".container") || document.body;
+  const exists = [...container.children].some(card =>
+    card.textContent.trim().toLowerCase().includes("images")
+  );
+
+  if (!exists) {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.onclick = () => window.location.href = "images/index.html";
+    card.innerHTML = `
+      <h3>Images</h3>
+      <p>Explore all my image projects</p>
+    `;
+    container.insertBefore(card, container.firstChild);
+  }
+});
+  </script>
+  
 </body>
 </html>
