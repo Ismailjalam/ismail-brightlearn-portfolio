@@ -95,28 +95,61 @@
     </p>
   </section>
 
-  // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+  <section id="comments-section">
+  <h2>Leave a Comment</h2>
+  <form id="commentForm">
+    <input type="text" id="name" placeholder="Your name" required><br>
+    <textarea id="comment" placeholder="Write your comment..." required></textarea><br>
+    <button type="submit">Post Comment</button>
+  </form>
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCqBs3z1sHmfoqO5-R6IH-epqbp9ypt9GE",
-  authDomain: "ismailjalam-a74e4.firebaseapp.com",
-  projectId: "ismailjalam-a74e4",
-  storageBucket: "ismailjalam-a74e4.firebasestorage.app",
-  messagingSenderId: "791455932737",
-  appId: "1:791455932737:web:e2537d83c9277a1ad541c0",
-  measurementId: "G-QVE0DHCNKD"
-};
+  <h3>All Comments:</h3>
+  <div id="commentsList"></div>
+  </section>
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+  
+  <script type="module">
+  // Import Firebase SDKs
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
+  // Firebase configuration (daga config ɗinka)
+  const firebaseConfig = {
+    apiKey: "AIzaSyCqBs3z1sHmfoqO5-R6IH-epqbp9ypt9GE",
+    authDomain: "ismailjalam-a74e4.firebaseapp.com",
+    projectId: "ismailjalam-a74e4",
+    storageBucket: "ismailjalam-a74e4.firebasestorage.app",
+    messagingSenderId: "791455932737",
+    appId: "1:791455932737:web:e2537d83c9277a1ad541c0",
+    measurementId: "G-QVE0DHCNKD"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Handle comment submission
+  const form = document.getElementById("commentForm");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const comment = document.getElementById("comment").value;
+
+    await addDoc(collection(db, "comments"), { name, comment });
+    alert("Comment submitted successfully!");
+    form.reset();
+  });
+
+  // Load comments
+  const commentsList = document.getElementById("commentsList");
+  const querySnapshot = await getDocs(collection(db, "comments"));
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+    const div = document.createElement("div");
+    div.textContent = `${data.name}: ${data.comment}`;
+    commentsList.appendChild(div);
+  });
+  </script>
   
   <footer>
     © 2025 Ismail Abdullahi Idris
