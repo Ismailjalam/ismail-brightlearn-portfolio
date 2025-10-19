@@ -5,47 +5,77 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Image Gallery - BrightLearn</title>
 <style>
-body { margin:0; font-family: 'Segoe UI', sans-serif; background: #1e3c72; color: #fff;}
-header { text-align:center; padding:30px; background: rgba(0,0,0,0.2); backdrop-filter: blur(6px); }
-header h1 { margin:0; font-size:2em; }
-.gallery { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:20px; padding:30px; max-width:1000px; margin:auto;}
-.gallery img { width:100%; border-radius:12px; transition: transform 0.3s, box-shadow 0.3s; }
-.gallery img:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
-footer { text-align:center; padding:15px; background: rgba(0,0,0,0.1); color:#cce0ff;}
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(120deg, #1e3c72, #2a5298);
+    color: #fff;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  #gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  #gallery img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s;
+  }
+  #gallery img:hover {
+    transform: scale(1.05);
+  }
+  .no-images {
+    text-align: center;
+    font-size: 1.2em;
+    color: #cce0ff;
+  }
 </style>
 </head>
 <body>
 
-<header>
 <h1>Image Gallery</h1>
-<p>All your images will appear below</p>
-</header>
+<div id="gallery"></div>
 
-<div class="gallery" id="gallery"></div>
-
-<footer>© 2025 BrightLearn — Ismail Abdullahi Idris</footer>
+<footer style="text-align:center; margin-top:40px;">
+  © 2025 BrightLearn — Ismail Abdullahi Idris
+</footer>
 
 <script>
-// Static filenames array
-const images = [
-  'image1.jpg',
-  'image2.png',
-  'image3.jpg',
-  // Add more images here
-];
-
+// Auto-detect images in the folder
 const gallery = document.getElementById('gallery');
 
-if(images.length === 0){
-  gallery.innerHTML = '<p>No images yet.</p>';
-} else {
-  images.forEach(file => {
-    const img = document.createElement('img');
-    img.src = `images/${file}`;
-    img.alt = file;
-    gallery.appendChild(img);
-  });
+// List of possible image extensions
+const extensions = ['jpg','jpeg','png','gif','webp'];
+
+// Try to create images 1 to 20 (adjust max if needed)
+let found = false;
+for(let i=1; i<=20; i++){
+  for(let ext of extensions){
+    const img = new Image();
+    img.src = `images/image${i}.${ext}`;
+    img.onload = () => { // show only if exists
+      gallery.appendChild(img);
+    };
+    img.onerror = () => {}; // ignore if not exists
+  }
 }
+
+// If no images found after short delay, show message
+setTimeout(()=>{
+  if(gallery.children.length === 0){
+    const msg = document.createElement('div');
+    msg.className = 'no-images';
+    msg.textContent = "No images yet.";
+    gallery.appendChild(msg);
+  }
+}, 500);
 </script>
 
 </body>
