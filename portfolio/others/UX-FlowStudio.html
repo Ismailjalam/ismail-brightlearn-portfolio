@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UX Flow Studio – Wireframes & Prototypes</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #1e3c72;
+      color: #fff;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: #cce0ff;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .accordion-btn {
+      background: #1e3c72;
+      color: #fff;
+      cursor: pointer;
+      padding: 12px 20px;
+      width: 100%;
+      border: none;
+      outline: none;
+      text-align: left;
+      font-size: 1em;
+      transition: background 0.3s;
+      margin-top: 8px;
+      border-radius: 6px;
+    }
+
+    .accordion-btn:hover {
+      background: #2a5298;
+    }
+
+    .accordion-content {
+      padding: 0 20px;
+      background: #f9f9f9;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s;
+      border-left: 3px solid #1e3c72;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .accordion-content p {
+      margin: 10px 0;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #555;
+      background: #eee;
+      margin-top: 50px;
+    }
+
+    @media(max-width:600px){
+      header h1 { font-size: 2em; }
+      .accordion-btn { font-size: 0.95em; padding: 10px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>UX Flow Studio – Wireframes & Prototypes</h1>
+  <p>Explore my UX workflow in interactive steps</p>
+</header>
+
+<section>
+  <p>Click each step to expand details:</p>
+
+  <button class="accordion-btn">1. Research & User Personas</button>
+  <div class="accordion-content">
+    <p>Identify target users, gather insights, and create personas representing key user groups.</p>
+  </div>
+
+  <button class="accordion-btn">2. User Stories & Scenarios</button>
+  <div class="accordion-content">
+    <p>Define user stories, scenarios, and goals to guide design decisions effectively.</p>
+  </div>
+
+  <button class="accordion-btn">3. Wireframing & Layout Planning</button>
+  <div class="accordion-content">
+    <p>Create low-fidelity wireframes outlining screen layouts and user interactions.</p>
+  </div>
+
+  <button class="accordion-btn">4. Prototype Development</button>
+  <div class="accordion-content">
+    <p>Build interactive prototypes simulating real user experience for testing and feedback.</p>
+  </div>
+
+  <button class="accordion-btn">5. Usability Testing & Iteration</button>
+  <div class="accordion-content">
+    <p>Conduct usability testing, collect feedback, and iterate designs for improved user satisfaction.</p>
+  </div>
+</section>
+
+<footer>
+  © 2025 BrightLearn — Ismail Abdullahi Idris
+</footer>
+
+<script>
+  const accBtns = document.querySelectorAll(".accordion-btn");
+  accBtns.forEach(btn => {
+    btn.addEventListener("click", function() {
+      const content = this.nextElementSibling;
+      if(content.style.maxHeight){
+        content.style.maxHeight = null;
+        content.style.padding = "0 20px";
+      } else {
+        // Close all other open contents
+        document.querySelectorAll(".accordion-content").forEach(c => {
+          c.style.maxHeight = null;
+          c.style.padding = "0 20px";
+        });
+        content.style.maxHeight = content.scrollHeight + "px";
+        content.style.padding = "10px 20px";
+      }
+    });
+  });
+</script>
+
+</body>
+  </html>
