@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 3: Premium Media Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    header h1 { 
+      margin: 0; 
+      font-size: 2.5em; 
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    header p { color: #cce0ff; margin-top: 8px; font-size: 1.2em; }
+
+    .media-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .media-card {
+      position: relative;
+      cursor: pointer;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .media-card img, .media-card video {
+      width: 100%;
+      display: block;
+      border-radius: 15px;
+      transition: transform 0.4s, filter 0.4s;
+    }
+
+    .media-card:hover img,
+    .media-card:hover video {
+      transform: scale(1.05);
+      filter: brightness(1.2);
+    }
+
+    .media-overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      color: #fff;
+      font-weight: bold;
+      font-size: 1em;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .media-card:hover .media-overlay {
+      opacity: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #cce0ff;
+      background: rgba(0,0,0,0.15);
+      backdrop-filter: blur(4px);
+      margin-top: 40px;
+    }
+
+    /* Lightbox styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 15px;
+    }
+
+    .lightbox-content img, .lightbox-content video {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2.5em;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close-btn:hover {
+      color: #ff7e5f;
+    }
+
+    @media(max-width:600px){
+      header h1 { font-size: 2em; }
+      .media-overlay { font-size: 0.9em; }
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Exercise 3: Premium Media Gallery</h1>
+  <p>Click any image or video to view in full screen</p>
+</header>
+
+<div class="media-container">
+  <!-- Video -->
+  <div class="media-card" onclick="openLightbox('demo.mp4', 'video')">
+    <video>
+      <source src="demo.mp4" type="video/mp4">
+      Your browser does not support video tag.
+    </video>
+    <div class="media-overlay">Project Video</div>
+  </div>
+
+  <!-- Images -->
+  <div class="media-card" onclick="openLightbox('image1.jpg', 'image')">
+    <img src="image1.jpg" alt="Project Image 1">
+    <div class="media-overlay">Project Image 1</div>
+  </div>
+
+  <div class="media-card" onclick="openLightbox('image2.jpg', 'image')">
+    <img src="image2.jpg" alt="Project Image 2">
+    <div class="media-overlay">Project Image 2</div>
+  </div>
+
+  <div class="media-card" onclick="openLightbox('image3.jpg', 'image')">
+    <img src="image3.jpg" alt="Project Image 3">
+    <div class="media-overlay">Project Image 3</div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <span class="close-btn" onclick="closeLightbox()">&times;</span>
+  <div class="lightbox-content" id="lightboxContent"></div>
+</div>
+
+<footer>
+  © 2025 BrightLearn — Ismail Abdullahi Idris
+</footer>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxContent = document.getElementById('lightboxContent');
+
+  function openLightbox(src, type){
+    lightbox.style.display = 'flex';
+    if(type === 'image'){
+      lightboxContent.innerHTML = `<img src="${src}" alt="Full Image">`;
+    } else if(type === 'video'){
+      lightboxContent.innerHTML = `<video controls autoplay><source src="${src}" type="video/mp4">Your browser does not support video tag.</video>`;
+    }
+  }
+
+  function closeLightbox(){
+    lightbox.style.display = 'none';
+    lightboxContent.innerHTML = '';
+  }
+</script>
+
+</body>
+  </html>
