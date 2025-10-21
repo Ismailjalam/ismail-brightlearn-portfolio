@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Insights Dashboard – UX Analysis</title>
+  <title>Customer Insights – UX Project</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
       background: #f4f4f4;
       color: #333;
-      line-height: 1.6;
     }
     header {
-      text-align: center;
-      padding: 40px 20px;
       background: #1e3c72;
       color: #fff;
+      padding: 40px 20px;
+      text-align: center;
     }
     header h1 {
       margin: 0;
-      font-size: 2.2em;
+      font-size: 2em;
     }
     header p {
-      margin: 8px 0 0 0;
+      margin: 5px 0 0;
       font-size: 1.1em;
       color: #cce0ff;
     }
@@ -31,23 +30,29 @@
       max-width: 900px;
       margin: 30px auto;
       padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
     }
     section {
       background: #fff;
       padding: 25px;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
     }
-    section h2 {
+    h2 {
       color: #1e3c72;
       margin-top: 0;
     }
-    section p {
-      margin: 10px 0;
+    p {
+      line-height: 1.6;
       color: #555;
     }
-    a.btn {
+    ul {
+      padding-left: 20px;
+      color: #555;
+    }
+    .btn-back {
       display: inline-block;
       padding: 10px 20px;
       background: #1e3c72;
@@ -55,54 +60,53 @@
       text-decoration: none;
       border-radius: 6px;
       transition: background 0.3s;
-      margin-top: 15px;
     }
-    a.btn:hover {
+    .btn-back:hover {
       background: #2a5298;
     }
     footer {
       text-align: center;
       padding: 20px;
-      font-size: 0.9em;
-      color: #555;
       background: #eee;
       margin-top: 50px;
-    }
-    @media(max-width:600px){
-      header h1 { font-size: 1.8em; }
-      section { padding: 20px; }
+      font-size: 0.9em;
+      color: #555;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Customer Insights Dashboard – UX Analysis</h1>
-    <p>Exercise 8 – Understanding user behavior and data-driven UX improvements</p>
+    <h1>Customer Insights – SaaS Platform UX</h1>
+    <p>Interactive UX project showcasing research, wireframes, and prototypes</p>
   </header>
 
   <main>
 
     <section>
       <h2>Project Overview</h2>
-      <p>This project demonstrates how user behavior and data can guide design decisions. We collected insights from real users, analyzed patterns, and created actionable recommendations to improve the overall user experience.</p>
+      <p>This project focuses on designing a user-friendly interface for a SaaS platform that helps businesses gather and analyze customer insights. The goal is to make complex data actionable and easy to understand.</p>
     </section>
 
     <section>
-      <h2>Key Deliverables</h2>
+      <h2>UX Workflow Steps</h2>
       <ul>
-        <li>Detailed user personas reflecting real audience segments.</li>
-        <li>Interactive dashboards showcasing key UX metrics.</li>
-        <li>Clear recommendations to optimize the product experience.</li>
+        <li><strong>User Research:</strong> Conducted surveys and interviews to understand user needs.</li>
+        <li><strong>Persona Creation:</strong> Defined key user personas for targeted solutions.</li>
+        <li><strong>Wireframes:</strong> Developed low-fidelity layouts for the main dashboard and analytics pages.</li>
+        <li><strong>Interactive Prototype:</strong> Created clickable flows to demonstrate navigation and user interactions.</li>
+        <li><strong>Usability Testing:</strong> Collected feedback and iterated designs for improved efficiency and clarity.</li>
       </ul>
     </section>
 
     <section>
-      <h2>Impact & Insights</h2>
-      <p>The dashboard and insights help stakeholders make informed decisions, improve usability, and increase engagement. This project highlights the power of data-driven UX design in real-world applications.</p>
+      <h2>Impact & Key Learnings</h2>
+      <p>The platform redesign improved clarity for decision-making and reduced navigation time by 30%. Learned how to balance data density with usability and visual hierarchy.</p>
     </section>
 
-    <a href="index.html" class="btn">Back to Portfolio</a>
+    <section>
+      <a href="index.html" class="btn-back">Back to UX Projects Hub</a>
+    </section>
 
   </main>
 
