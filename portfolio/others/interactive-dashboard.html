@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Dashboard – User Analytics</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #1e3c72;
+      color: #fff;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      margin: 8px 0 0 0;
+      font-size: 1.1em;
+      color: #cce0ff;
+    }
+    section.dashboard-content {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .card h2 {
+      margin-top: 0;
+      color: #1e3c72;
+    }
+    .card p {
+      margin: 10px 0 15px 0;
+      font-size: 1em;
+      color: #555;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #555;
+      background: #eee;
+      margin-top: 50px;
+    }
+    @media(max-width:600px){
+      header h1 { font-size: 2em; }
+      .card { padding: 20px; }
+    }
+    /* Sample charts styling */
+    .chart {
+      height: 250px;
+      background: #e6f0ff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1e3c72;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Interactive Dashboard – User Analytics</h1>
+    <p>Analyze user behavior & gain actionable UX insights</p>
+  </header>
+
+  <section class="dashboard-content">
+    <div class="card">
+      <h2>1. User Engagement Overview</h2>
+      <div class="chart">[Chart Placeholder: Engagement]</div>
+      <p>Track user sessions, clicks, and activity to measure engagement levels across the platform.</p>
+    </div>
+
+    <div class="card">
+      <h2>2. Conversion Metrics</h2>
+      <div class="chart">[Chart Placeholder: Conversions]</div>
+      <p>Visualize conversion rates for different campaigns or user journeys to optimize UX decisions.</p>
+    </div>
+
+    <div class="card">
+      <h2>3. User Demographics & Segmentation</h2>
+      <div class="chart">[Chart Placeholder: Demographics]</div>
+      <p>Analyze age, location, and behavior segments to tailor the user experience effectively.</p>
+    </div>
+
+    <div class="card">
+      <h2>4. UX Recommendations</h2>
+      <p>Based on analytics, propose improvements to the interface, navigation, and content for higher engagement.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Ismail Abdullahi Idris
+  </footer>
+
+</body>
+</html>
