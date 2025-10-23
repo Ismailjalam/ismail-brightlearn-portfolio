@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Landing Page – UX Conversion Design</title>
+  <title>Product Landing Page – UX/UI Showcase</title>
   <style>
     body {
       margin: 0;
@@ -19,85 +19,101 @@
     }
     header h1 {
       margin: 0;
-      font-size: 2em;
+      font-size: 2.5em;
     }
     header p {
-      margin-top: 10px;
+      margin: 8px 0 0 0;
+      font-size: 1.1em;
       color: #cce0ff;
     }
-    section {
-      max-width: 900px;
-      margin: 40px auto;
+    main {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    section.card {
       background: #fff;
-      padding: 30px;
+      padding: 25px;
       border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    h2 {
+    section.card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    section.card h2 {
+      margin-top: 0;
       color: #1e3c72;
-      margin-bottom: 15px;
     }
-    p {
-      line-height: 1.6;
+    section.card p {
+      margin: 10px 0 15px 0;
+      font-size: 1em;
       color: #555;
     }
-    ul {
-      margin: 15px 0;
-      padding-left: 20px;
-      color: #444;
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #1e3c72;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #2a5298;
     }
     footer {
       text-align: center;
       padding: 20px;
-      background: #eee;
+      font-size: 0.9em;
       color: #555;
-      margin-top: 40px;
+      background: #eee;
+      margin-top: 50px;
     }
-    .cta-btn {
-      display: inline-block;
-      padding: 12px 25px;
-      background: #1e3c72;
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      margin-top: 15px;
-      transition: background 0.3s;
-    }
-    .cta-btn:hover {
-      background: #2a5298;
+    @media(max-width:600px){
+      header h1 { font-size: 2em; }
+      section.card { padding: 20px; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Product Landing Page – UX Conversion Design</h1>
-    <p>Designing persuasive and visually balanced landing pages for better engagement</p>
+    <h1>Product Landing Page – UX/UI Showcase</h1>
+    <p>Professional design demonstrating user-centered landing page design</p>
   </header>
 
-  <section>
-    <h2>Overview</h2>
-    <p>
-      This project focuses on the UX structure behind successful product landing pages. 
-      It demonstrates how layout hierarchy, colors, and CTA positioning influence user conversion rates.
-    </p>
+  <main>
 
-    <h2>Key UX Highlights</h2>
-    <ul>
-      <li>Strategic use of whitespace for content clarity</li>
-      <li>Effective color contrast for CTA visibility</li>
-      <li>Visual storytelling through imagery and copy balance</li>
-      <li>Mobile-first responsive layout</li>
-    </ul>
+    <section class="card">
+      <h2>Overview</h2>
+      <p>This project demonstrates a clean and conversion-focused landing page for a product, emphasizing UX/UI principles and effective information hierarchy.</p>
+    </section>
 
-    <h2>Result</h2>
-    <p>
-      The design improved conversion by enhancing visual focus and simplifying navigation flow. 
-      The page aligns marketing goals with user intent through thoughtful design choices.
-    </p>
+    <section class="card">
+      <h2>Key Features</h2>
+      <ul>
+        <li>User-friendly interface with clear CTA buttons</li>
+        <li>Structured content for readability</li>
+        <li>Responsive design for mobile & desktop</li>
+        <li>Interactive product sections and visuals</li>
+      </ul>
+    </section>
 
-    <a href="#" class="cta-btn">View Full Landing Page</a>
-  </section>
+    <section class="card">
+      <h2>UX Process</h2>
+      <p>Research → Wireframing → Visual Design → Prototype → User Testing → Final Landing Page. Each step ensures a seamless user journey.</p>
+    </section>
+
+    <section class="card">
+      <h2>Conclusion</h2>
+      <p>This landing page project highlights practical UX/UI skills that attract users, improve engagement, and demonstrate professional portfolio quality.</p>
+      <a href="#" class="btn">View Live Demo</a>
+    </section>
+
+  </main>
 
   <footer>
     © 2025 Ismail Abdullahi Idris
