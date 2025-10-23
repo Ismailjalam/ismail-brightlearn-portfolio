@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Landing Page – UX/UI Showcase</title>
+  <title>Product Landing Page – UX Conversion Design</title>
   <style>
     body {
       margin: 0;
@@ -19,38 +19,25 @@
     }
     header h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 2.2em;
     }
     header p {
       margin: 8px 0 0 0;
       font-size: 1.1em;
       color: #cce0ff;
     }
-    main {
-      max-width: 1000px;
+    section {
+      max-width: 900px;
       margin: 30px auto;
       padding: 0 20px;
     }
-    section.card {
-      background: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    section.card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    }
-    section.card h2 {
-      margin-top: 0;
+    h2 {
       color: #1e3c72;
+      margin-bottom: 15px;
     }
-    section.card p {
-      margin: 10px 0 15px 0;
-      font-size: 1em;
-      color: #555;
+    p {
+      line-height: 1.6;
+      margin-bottom: 20px;
     }
     .btn {
       display: inline-block;
@@ -64,6 +51,13 @@
     .btn:hover {
       background: #2a5298;
     }
+    .feature-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
     footer {
       text-align: center;
       padding: 20px;
@@ -73,47 +67,44 @@
       margin-top: 50px;
     }
     @media(max-width:600px){
-      header h1 { font-size: 2em; }
-      section.card { padding: 20px; }
+      header h1 { font-size: 1.8em; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Product Landing Page – UX/UI Showcase</h1>
-    <p>Professional design demonstrating user-centered landing page design</p>
+    <h1>Product Landing Page – UX Conversion Design</h1>
+    <p>Persuasive, user-centered landing page for optimized engagement and conversions</p>
   </header>
 
-  <main>
+  <section>
+    <h2>Project Overview</h2>
+    <p>This project demonstrates how a well-structured landing page can drive user actions. It focuses on layout, visual hierarchy, CTA placement, and overall conversion optimization through UX principles.</p>
 
-    <section class="card">
-      <h2>Overview</h2>
-      <p>This project demonstrates a clean and conversion-focused landing page for a product, emphasizing UX/UI principles and effective information hierarchy.</p>
-    </section>
+    <h2>Key Features</h2>
+    <div class="feature-card">
+      <h3>Clear Value Proposition</h3>
+      <p>Immediate clarity on product benefits for users, ensuring engagement within first seconds.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Strong Visual Hierarchy</h3>
+      <p>Typography, spacing, and color contrast guide users naturally through the page content.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Call-To-Action Optimization</h3>
+      <p>Strategic CTA placement encourages sign-ups or purchases with minimal friction.</p>
+    </div>
+    <div class="feature-card">
+      <h3>User-Centered UX</h3>
+      <p>Wireframes, prototypes, and usability testing inform design decisions for better user experience.</p>
+    </div>
 
-    <section class="card">
-      <h2>Key Features</h2>
-      <ul>
-        <li>User-friendly interface with clear CTA buttons</li>
-        <li>Structured content for readability</li>
-        <li>Responsive design for mobile & desktop</li>
-        <li>Interactive product sections and visuals</li>
-      </ul>
-    </section>
+    <h2>UX Process</h2>
+    <p>Research → Wireframing → Prototyping → Usability Testing → Final Design Implementation.</p>
 
-    <section class="card">
-      <h2>UX Process</h2>
-      <p>Research → Wireframing → Visual Design → Prototype → User Testing → Final Landing Page. Each step ensures a seamless user journey.</p>
-    </section>
-
-    <section class="card">
-      <h2>Conclusion</h2>
-      <p>This landing page project highlights practical UX/UI skills that attract users, improve engagement, and demonstrate professional portfolio quality.</p>
-      <a href="#" class="btn">View Live Demo</a>
-    </section>
-
-  </main>
+    <a href="#" class="btn">View Live Demo</a>
+  </section>
 
   <footer>
     © 2025 Ismail Abdullahi Idris
