@@ -1,93 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exercise 23 – Accessibility Redesign (UX Compliance)</title>
-  <link rel="stylesheet" href="../style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Redesign – Inclusive UX</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #1e3c72;
+      color: #fff;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      margin: 8px 0 0 0;
+      font-size: 1.1em;
+      color: #cce0ff;
+    }
+    section {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      color: #1e3c72;
+      margin-top: 0;
+    }
+    p {
+      margin: 10px 0 15px 0;
+      font-size: 1em;
+      line-height: 1.6;
+    }
+    ul {
+      margin: 10px 0 15px 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #555;
+      background: #eee;
+      margin-top: 50px;
+    }
+    .highlight {
+      background: #d9edf7;
+      padding: 8px 12px;
+      border-left: 4px solid #31708f;
+      margin: 10px 0;
+    }
+  </style>
 </head>
 <body>
 
-  <header class="exercise-header">
-    <h1>Exercise 23: Accessibility Redesign – UX Compliance</h1>
-    <p>Enhancing inclusivity and usability through accessible design principles.</p>
+  <header>
+    <h1>Accessibility Redesign – Inclusive UX</h1>
+    <p>Creating fully accessible and inclusive experiences for all users</p>
   </header>
 
-  <main class="exercise-content">
+  <section>
+    <h2>Project Overview</h2>
+    <p>This project focuses on redesigning digital interfaces to ensure inclusivity and accessibility for all users, including those with visual, auditory, motor, and cognitive impairments. Our goal is to create seamless, compliant, and user-friendly digital experiences.</p>
 
-    <section class="objective">
-      <h2>🎯 Objective</h2>
-      <p>
-        Redesign an existing interface to comply with WCAG 2.1 standards. Focus on visual contrast,
-        keyboard navigation, and screen reader compatibility to make digital products inclusive for all.
-      </p>
-    </section>
+    <h2>Core Focus Areas</h2>
+    <ul>
+      <li><strong>Color & Contrast:</strong> High contrast modes, color-blind friendly palettes, and customizable themes to suit user preferences.</li>
+      <li><strong>Keyboard & Focus Navigation:</strong> Full support for tab navigation, focus indicators, shortcut keys, and skip-links for efficient navigation.</li>
+      <li><strong>Screen Reader & ARIA:</strong> Semantic HTML, ARIA roles, labels, and live regions for improved screen reader compatibility.</li>
+      <li><strong>Adjustable Typography:</strong> Scalable fonts, line-height adjustments, and readable typography for all users.</li>
+      <li><strong>Form Accessibility:</strong> Accessible forms with clear error messaging, validation guidance, and hints.</li>
+      <li><strong>Media Accessibility:</strong> Captions, transcripts, and audio descriptions for videos and audio content.</li>
+      <li><strong>Cognitive Load Reduction:</strong> Simplified layouts, consistent UI patterns, and clear instructions for better comprehension.</li>
+      <li><strong>Inclusive UX Patterns:</strong> Designing interactions for users with motor impairments, cognitive challenges, and diverse needs.</li>
+      <li><strong>Responsive Design:</strong> Accessible experience across mobile, tablet, and desktop without loss of functionality.</li>
+      <li><strong>Interactive Feedback:</strong> Clear visual, audio, and haptic feedback for all interactions.</li>
+    </ul>
 
-    <section class="research">
-      <h2>🔍 Research & Pain Points</h2>
-      <ul>
-        <li>Low color contrast causing difficulty for visually impaired users.</li>
-        <li>Missing ARIA labels for icons and non-text content.</li>
-        <li>No focus indicator for keyboard navigation.</li>
-        <li>Non-semantic HTML structure leading to poor screen reader experience.</li>
-      </ul>
-    </section>
+    <h2>Design Challenges & Solutions</h2>
+    <ul>
+      <li><strong>Complex Navigation:</strong> Simplified hierarchical menus, breadcrumb trails, and skip-links to reduce disorientation.</li>
+      <li><strong>Visual Impairments:</strong> High contrast themes, scalable fonts, and alternative text for all images and icons.</li>
+      <li><strong>Auditory Impairments:</strong> Captions, transcripts, and visual notifications for audio content.</li>
+      <li><strong>Cognitive Load:</strong> Clear labeling, consistent UI patterns, progressive disclosure, and instructional cues.</li>
+      <li class="highlight"><strong>Legal & Compliance:</strong> All changes aligned with WCAG 2.1 guidelines to ensure regulatory compliance.</li>
+      <li><strong>Device Responsiveness:</strong> Accessibility maintained across different screen sizes and input methods.</li>
+    </ul>
 
-    <section class="approach">
-      <h2>💡 UX Redesign Approach</h2>
-      <p>The redesign process was guided by four key accessibility principles:</p>
-      <ol>
-        <li><strong>Perceivable:</strong> Clear typography, proper contrast, and text alternatives for images.</li>
-        <li><strong>Operable:</strong> Full keyboard navigation and focus visibility.</li>
-        <li><strong>Understandable:</strong> Consistent navigation patterns and predictable layouts.</li>
-        <li><strong>Robust:</strong> Semantic HTML with ARIA support for assistive technologies.</li>
-      </ol>
-    </section>
+    <h2>Practical Outcomes</h2>
+    <ul>
+      <li>Increased usability for all users, regardless of ability.</li>
+      <li>Improved engagement and task completion rates.</li>
+      <li>Enhanced satisfaction and loyalty for users with accessibility needs.</li>
+      <li>Portfolio-ready demonstration of comprehensive accessibility UX skills.</li>
+    </ul>
 
-    <section class="implementation">
-      <h2>⚙️ Implementation Highlights</h2>
-      <div class="highlight-grid">
-        <div class="highlight-item">
-          <h3>Color Contrast</h3>
-          <p>Used accessible color palette ensuring a minimum 4.5:1 contrast ratio.</p>
-        </div>
-        <div class="highlight-item">
-          <h3>ARIA Roles</h3>
-          <p>Added descriptive <code>aria-label</code> attributes to non-text elements for screen readers.</p>
-        </div>
-        <div class="highlight-item">
-          <h3>Keyboard Flow</h3>
-          <p>Structured navigation order and added visible focus outlines for all interactive components.</p>
-        </div>
-        <div class="highlight-item">
-          <h3>Semantic Structure</h3>
-          <p>Replaced generic <code>div</code> tags with <code>header</code>, <code>nav</code>, and <code>main</code> elements.</p>
-        </div>
-      </div>
-    </section>
+    <h2>Client Takeaways</h2>
+    <ul>
+      <li>Understand the impact of accessibility on wider audience reach.</li>
+      <li>See measurable improvement in engagement and retention from inclusive design.</li>
+      <li>Learn how to implement accessibility without compromising aesthetics or functionality.</li>
+      <li>Gain confidence that digital products meet both ethical and legal accessibility standards.</li>
+    </ul>
 
-    <section class="outcome">
-      <h2>📊 Outcome & Results</h2>
-      <ul>
-        <li>Accessibility score improved from <strong>61%</strong> → <strong>98%</strong> (Lighthouse Audit).</li>
-        <li>Task completion rate increased by <strong>40%</strong>.</li>
-        <li>All users could now navigate with keyboard and screen readers efficiently.</li>
-      </ul>
-    </section>
+    <h2>Next Steps</h2>
+    <p>Principles from this project can be extended to mobile apps, SaaS dashboards, PWAs, and other digital platforms to ensure accessibility and inclusivity at scale.</p>
+  </section>
 
-    <section class="reflection">
-      <h2>🧠 Key Takeaways</h2>
-      <p>
-        Accessibility is not a bonus feature — it’s a core part of great UX design.  
-        Every improvement that helps a user with a disability benefits all users overall.
-      </p>
-    </section>
-
-    <div class="back-btn">
-      <a href="../index.html" class="btn">← Back to Exercises</a>
-    </div>
-
-  </main>
+  <footer>
+    © 2025 Ismail Abdullahi Idris
+  </footer>
 
 </body>
 </html>
