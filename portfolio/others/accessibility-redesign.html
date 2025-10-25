@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessibility Redesign – UX Project</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="project-header">
+    <h1>Accessibility Redesign – UX Case Study</h1>
+    <p>Improving inclusivity, readability, and interaction for all users</p>
+  </header>
+
+  <section class="intro">
+    <h2>Overview</h2>
+    <p>
+      This project focuses on redesigning a website to meet WCAG 2.1 accessibility standards. 
+      The goal was to create an inclusive interface that enhances usability for people with visual, auditory, and motor impairments.
+    </p>
+  </section>
+
+  <section class="problem">
+    <h2>Problem Statement</h2>
+    <p>
+      The previous interface used low-contrast colors, lacked keyboard navigation, 
+      and did not include ARIA labels, creating barriers for users with disabilities.
+    </p>
+  </section>
+
+  <section class="research">
+    <h2>User Research & Insights</h2>
+    <ul>
+      <li>5 users with visual impairments tested the original interface.</li>
+      <li>Screen reader navigation failed on several menu items.</li>
+      <li>Keyboard focus was not visible on interactive elements.</li>
+    </ul>
+  </section>
+
+  <section class="solutions">
+    <h2>Redesign Solutions</h2>
+    <h3>✅ Color & Contrast</h3>
+    <p>Used accessible color palettes ensuring contrast ratios above 4.5:1.</p>
+
+    <h3>✅ Semantic HTML</h3>
+    <p>Replaced <code>&lt;div&gt;</code> heavy layouts with semantic tags like <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, and <code>&lt;main&gt;</code>.</p>
+
+    <h3>✅ Keyboard Navigation</h3>
+    <p>Added visible focus outlines and improved tab flow for all interactive elements.</p>
+
+    <h3>✅ ARIA Roles</h3>
+    <p>Implemented ARIA labels for screen readers to describe non-text elements.</p>
+
+    <h3>✅ Alt Text Audit</h3>
+    <p>Added descriptive alternative text for all images and media.</p>
+  </section>
+
+  <section class="before-after">
+    <h2>Before vs After</h2>
+    <div class="comparison">
+      <div class="before">
+        <h4>Before Redesign</h4>
+        <p>Users struggled to read text, find buttons, and navigate forms.</p>
+      </div>
+      <div class="after">
+        <h4>After Redesign</h4>
+        <p>The interface is now screen-reader friendly, fully navigable by keyboard, and visually clear.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="impact">
+    <h2>Impact & Results</h2>
+    <ul>
+      <li>Accessibility score improved from 61% → 98% (Lighthouse audit)</li>
+      <li>Average task completion time reduced by 40%</li>
+      <li>User satisfaction increased significantly among visually impaired testers</li>
+    </ul>
+  </section>
+
+  <section class="reflection">
+    <h2>Lessons Learned</h2>
+    <p>
+      Accessibility is not an afterthought — it’s part of great design.  
+      Designing for inclusivity benefits everyone, not just people with disabilities.
+    </p>
+  </section>
+
+  <footer>
+    <a href="index.html" class="btn">← Back to Portfolio</a>
+  </footer>
+</body>
+</html>
