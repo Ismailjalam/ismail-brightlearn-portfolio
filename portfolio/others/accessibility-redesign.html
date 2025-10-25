@@ -3,91 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Accessibility Redesign – UX Project</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Exercise 23 – Accessibility Redesign (UX Compliance)</title>
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
-  <header class="project-header">
-    <h1>Accessibility Redesign – UX Case Study</h1>
-    <p>Improving inclusivity, readability, and interaction for all users</p>
+
+  <header class="exercise-header">
+    <h1>Exercise 23: Accessibility Redesign – UX Compliance</h1>
+    <p>Enhancing inclusivity and usability through accessible design principles.</p>
   </header>
 
-  <section class="intro">
-    <h2>Overview</h2>
-    <p>
-      This project focuses on redesigning a website to meet WCAG 2.1 accessibility standards. 
-      The goal was to create an inclusive interface that enhances usability for people with visual, auditory, and motor impairments.
-    </p>
-  </section>
+  <main class="exercise-content">
 
-  <section class="problem">
-    <h2>Problem Statement</h2>
-    <p>
-      The previous interface used low-contrast colors, lacked keyboard navigation, 
-      and did not include ARIA labels, creating barriers for users with disabilities.
-    </p>
-  </section>
+    <section class="objective">
+      <h2>🎯 Objective</h2>
+      <p>
+        Redesign an existing interface to comply with WCAG 2.1 standards. Focus on visual contrast,
+        keyboard navigation, and screen reader compatibility to make digital products inclusive for all.
+      </p>
+    </section>
 
-  <section class="research">
-    <h2>User Research & Insights</h2>
-    <ul>
-      <li>5 users with visual impairments tested the original interface.</li>
-      <li>Screen reader navigation failed on several menu items.</li>
-      <li>Keyboard focus was not visible on interactive elements.</li>
-    </ul>
-  </section>
+    <section class="research">
+      <h2>🔍 Research & Pain Points</h2>
+      <ul>
+        <li>Low color contrast causing difficulty for visually impaired users.</li>
+        <li>Missing ARIA labels for icons and non-text content.</li>
+        <li>No focus indicator for keyboard navigation.</li>
+        <li>Non-semantic HTML structure leading to poor screen reader experience.</li>
+      </ul>
+    </section>
 
-  <section class="solutions">
-    <h2>Redesign Solutions</h2>
-    <h3>✅ Color & Contrast</h3>
-    <p>Used accessible color palettes ensuring contrast ratios above 4.5:1.</p>
+    <section class="approach">
+      <h2>💡 UX Redesign Approach</h2>
+      <p>The redesign process was guided by four key accessibility principles:</p>
+      <ol>
+        <li><strong>Perceivable:</strong> Clear typography, proper contrast, and text alternatives for images.</li>
+        <li><strong>Operable:</strong> Full keyboard navigation and focus visibility.</li>
+        <li><strong>Understandable:</strong> Consistent navigation patterns and predictable layouts.</li>
+        <li><strong>Robust:</strong> Semantic HTML with ARIA support for assistive technologies.</li>
+      </ol>
+    </section>
 
-    <h3>✅ Semantic HTML</h3>
-    <p>Replaced <code>&lt;div&gt;</code> heavy layouts with semantic tags like <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, and <code>&lt;main&gt;</code>.</p>
-
-    <h3>✅ Keyboard Navigation</h3>
-    <p>Added visible focus outlines and improved tab flow for all interactive elements.</p>
-
-    <h3>✅ ARIA Roles</h3>
-    <p>Implemented ARIA labels for screen readers to describe non-text elements.</p>
-
-    <h3>✅ Alt Text Audit</h3>
-    <p>Added descriptive alternative text for all images and media.</p>
-  </section>
-
-  <section class="before-after">
-    <h2>Before vs After</h2>
-    <div class="comparison">
-      <div class="before">
-        <h4>Before Redesign</h4>
-        <p>Users struggled to read text, find buttons, and navigate forms.</p>
+    <section class="implementation">
+      <h2>⚙️ Implementation Highlights</h2>
+      <div class="highlight-grid">
+        <div class="highlight-item">
+          <h3>Color Contrast</h3>
+          <p>Used accessible color palette ensuring a minimum 4.5:1 contrast ratio.</p>
+        </div>
+        <div class="highlight-item">
+          <h3>ARIA Roles</h3>
+          <p>Added descriptive <code>aria-label</code> attributes to non-text elements for screen readers.</p>
+        </div>
+        <div class="highlight-item">
+          <h3>Keyboard Flow</h3>
+          <p>Structured navigation order and added visible focus outlines for all interactive components.</p>
+        </div>
+        <div class="highlight-item">
+          <h3>Semantic Structure</h3>
+          <p>Replaced generic <code>div</code> tags with <code>header</code>, <code>nav</code>, and <code>main</code> elements.</p>
+        </div>
       </div>
-      <div class="after">
-        <h4>After Redesign</h4>
-        <p>The interface is now screen-reader friendly, fully navigable by keyboard, and visually clear.</p>
-      </div>
+    </section>
+
+    <section class="outcome">
+      <h2>📊 Outcome & Results</h2>
+      <ul>
+        <li>Accessibility score improved from <strong>61%</strong> → <strong>98%</strong> (Lighthouse Audit).</li>
+        <li>Task completion rate increased by <strong>40%</strong>.</li>
+        <li>All users could now navigate with keyboard and screen readers efficiently.</li>
+      </ul>
+    </section>
+
+    <section class="reflection">
+      <h2>🧠 Key Takeaways</h2>
+      <p>
+        Accessibility is not a bonus feature — it’s a core part of great UX design.  
+        Every improvement that helps a user with a disability benefits all users overall.
+      </p>
+    </section>
+
+    <div class="back-btn">
+      <a href="../index.html" class="btn">← Back to Exercises</a>
     </div>
-  </section>
 
-  <section class="impact">
-    <h2>Impact & Results</h2>
-    <ul>
-      <li>Accessibility score improved from 61% → 98% (Lighthouse audit)</li>
-      <li>Average task completion time reduced by 40%</li>
-      <li>User satisfaction increased significantly among visually impaired testers</li>
-    </ul>
-  </section>
+  </main>
 
-  <section class="reflection">
-    <h2>Lessons Learned</h2>
-    <p>
-      Accessibility is not an afterthought — it’s part of great design.  
-      Designing for inclusivity benefits everyone, not just people with disabilities.
-    </p>
-  </section>
-
-  <footer>
-    <a href="index.html" class="btn">← Back to Portfolio</a>
-  </footer>
 </body>
 </html>
