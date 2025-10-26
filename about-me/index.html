@@ -59,6 +59,61 @@
       color: #ffd700;
     }
 
+    /* ===== Bio Card ===== */
+    .bio-card {
+      margin-top: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 500px;
+      transition: transform 0.3s ease;
+    }
+
+    .bio-card:hover {
+      transform: scale(1.02);
+    }
+
+    .bio-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #ffd700;
+      margin-bottom: 15px;
+      object-fit: cover;
+    }
+
+    .bio-card h2 {
+      color: #ffd700;
+      font-size: 1.4em;
+      margin: 5px 0;
+    }
+
+    .bio-card p {
+      color: #ccc;
+      font-size: 0.95em;
+      margin-bottom: 15px;
+    }
+
+    .bio-links a {
+      display: inline-block;
+      margin: 6px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background-color: #ffd700;
+      color: #1a1a1a;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .bio-links a:hover {
+      background-color: #ffec80;
+      transform: translateY(-2px);
+    }
+
     /* ===== Back Link ===== */
     a.back-home {
       display: inline-block;
@@ -79,7 +134,7 @@
       h1 {
         font-size: 1.8em;
       }
-      .about-box {
+      .about-box, .bio-card {
         padding: 20px;
       }
     }
@@ -106,6 +161,18 @@
     <p>
       Outside work, I enjoy reading about technology, innovation, and personal development — always finding new ways to merge creativity with purpose.
     </p>
+  </div>
+
+  <div class="bio-card">
+    <img src="https://via.placeholder.com/100" alt="Profile Picture" />
+    <h2>Ismail Abdullahi Idris</h2>
+    <p>UX/UI Designer | Digital Creator | Growth Strategist</p>
+    <div class="bio-links">
+      <a href="mailto:ismailbrightlearn@gmail.com">Email</a>
+      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      <a href="https://github.com" target="_blank">GitHub</a>
+      <a href="https://x.com" target="_blank">Twitter</a>
+    </div>
   </div>
 
   <a href="../index.html" class="back-home">← Back to Home</a>
