@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Me - BrightLearn</title>
   <style>
+    /* ===== Base Styling ===== */
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -14,119 +15,99 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
+      padding: 30px 20px;
     }
 
     h1 {
       color: #ffd700;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-    }
-
-    .about-content {
-      max-width: 700px;
-      margin: 20px 0;
+      font-size: 2.2em;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      margin-bottom: 10px;
       text-align: center;
-      line-height: 1.7;
     }
 
-    .comment-box {
-      margin-top: 40px;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 600px;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 8px;
+    .subtitle {
+      color: #d0d0d0;
       font-size: 1em;
+      text-align: center;
+      margin-bottom: 40px;
+      letter-spacing: 0.5px;
     }
 
-    textarea {
-      height: 100px;
-      resize: none;
+    /* ===== About Section ===== */
+    .about-box {
+      max-width: 750px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      text-align: center;
+      transition: transform 0.3s ease;
     }
 
-    button {
-      background-color: #ffd700;
-      color: #1a1a1a;
-      font-weight: 700;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.3s ease;
+    .about-box:hover {
+      transform: translateY(-5px);
     }
 
-    button:hover {
-      background-color: #ffea75;
-      transform: scale(1.05);
+    .about-box p {
+      line-height: 1.8;
+      font-size: 1.05em;
+      color: #e6e6e6;
     }
 
+    strong {
+      color: #ffd700;
+    }
+
+    /* ===== Back Link ===== */
     a.back-home {
       display: inline-block;
-      margin-top: 25px;
+      margin-top: 40px;
       color: #ffd700;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      transition: color 0.3s ease;
     }
 
     a.back-home:hover {
+      color: #ffec80;
       text-decoration: underline;
     }
 
-    .success {
-      color: #90ee90;
-      margin-top: 15px;
-      font-weight: 600;
+    /* ===== Responsive ===== */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8em;
+      }
+      .about-box {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
   <h1>About Me</h1>
+  <p class="subtitle">Crafting ideas into creative digital experiences ✨</p>
 
-  <div class="about-content">
-    <p>My name is <strong>Ismail Abdullahi Idris</strong>, a passionate and driven individual with a degree in Agricultural Science Education from the University of Maiduguri. I am highly skilled in sales strategy, marketing, and creative problem solving. My goal is to help businesses and individuals grow through innovative ideas and digital solutions.</p>
-  </div>
+  <div class="about-box">
+    <p>
+      Hello! I’m <strong>Ismail Abdullahi Idris</strong> — a creative problem-solver with a passion for helping people and businesses grow through smart, digital-first solutions.
+      I hold a degree in <strong>Agricultural Science Education</strong> from the <strong>University of Maiduguri</strong>, and over time, I’ve developed practical experience in <strong>sales strategy</strong>, <strong>marketing</strong>, <strong>UX/UI design</strong>, and <strong>content creation</strong>.
+    </p>
 
-  <div class="comment-box">
-    <h3>Leave a Comment</h3>
-    <form name="comments" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="comments" />
-      <input type="text" name="name" placeholder="Your Name" required />
-      <textarea name="message" placeholder="Your Comment" required></textarea>
-      <button type="submit">Send</button>
-      <p class="success">Thanks! Your comment has been sent ✅</p>
-    </form>
+    <p>
+      I enjoy learning, building, and improving systems that make life easier for others. Whether it’s designing clean interfaces, creating engaging user experiences, or helping brands find their voice online — I love turning ideas into results.
+    </p>
+
+    <p>
+      Currently, I’m focused on expanding my digital design portfolio and connecting with clients who value creativity, clarity, and consistency in their projects.
+    </p>
+
+    <p>
+      Outside work, I enjoy reading about technology, innovation, and personal development — always finding new ways to merge creativity with purpose.
+    </p>
   </div>
 
   <a href="../index.html" class="back-home">← Back to Home</a>
-
-  <script>
-    const form = document.querySelector("form");
-    const successMsg = document.querySelector(".success");
-    successMsg.style.display = "none";
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(data).toString(),
-      })
-        .then(() => {
-          successMsg.style.display = "block";
-          form.reset();
-        })
-        .catch((error) => alert(error));
-    });
-  </script>
 </body>
 </html>
