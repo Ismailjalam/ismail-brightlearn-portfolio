@@ -159,51 +159,6 @@
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
 <script>
-  // Firebase config
-  const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
-
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const database = firebase.database();
-
-  // Handle form submission
-  const commentForm = document.getElementById('commentForm');
-  const successMsg = document.getElementById('successMsg');
-
-  commentForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const comment = document.getElementById('comment').value;
-
-    const newCommentRef = database.ref('comments').push();
-    newCommentRef.set({
-      name: name,
-      comment: comment,
-      timestamp: Date.now()
-    })
-    .then(() => {
-      successMsg.style.display = 'block';
-      commentForm.reset();
-    })
-    .catch((err) => {
-      alert('Error: ' + err.message);
-    });
-  });
-</script>
-
-  <!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-
-<script>
   // Firebase config naka
   const firebaseConfig = {
     apiKey: "AIzaSyCqBs3z1sHmfoqO5-R6IH-epqbp9ypt9GE",
@@ -242,7 +197,7 @@
       alert('Error: ' + err.message);
     });
   });
-      </script>
+</script>
   
 </body>
 </html>
