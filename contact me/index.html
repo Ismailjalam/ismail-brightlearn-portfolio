@@ -1,154 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Me - Ismail Abdullahi Idris</title>
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: #f0f4f8;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  header {
-    text-align: center;
-    padding: 50px 20px 20px 20px;
-  }
-  header h1 {
-    font-size: 2.5em;
-    margin: 0;
-    color: #ffd700;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-  }
-  header p {
-    font-size: 1.2em;
-    margin: 10px 0 20px 0;
-    color: #cce0ff;
-  }
-  .contact-info {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 1.1em;
-  }
-  .contact-info a {
-    color: #ffd700;
-    text-decoration: none;
-  }
-  section {
-    max-width: 700px;
-    margin: 0 auto 40px auto;
-    padding: 40px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 16px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-    width: 90%;
-    text-align: center;
-  }
-  input, textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 8px;
-    font-size: 1em;
-  }
-  textarea { height: 100px; resize: none; }
-  button {
-    background-color: #ffd700;
-    color: #1a1a1a;
-    font-weight: 700;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  button:hover {
-    background-color: #ffea75;
-    transform: scale(1.05);
-  }
-  .success { color: #90ee90; margin-top: 15px; font-weight: 600; display: none; }
-  a.back-home {
-    display: inline-block;
-    margin-top: 25px;
-    color: #ffd700;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  a.back-home:hover { text-decoration: underline; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me - BrightLearn</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2c3e50);
+      color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
 
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    header {
+      padding: 50px 20px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #ffdd57;
+      margin: 0;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+
+    header p {
+      margin: 10px 0 0 0;
+      font-size: 1.1em;
+      color: #cce0ff;
+    }
+
+    .contact-info {
+      margin: 40px 0;
+      font-size: 1.1em;
+    }
+
+    .contact-info p {
+      margin: 8px 0;
+    }
+
+    .contact-info span {
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    .comment-box {
+      background: rgba(255,255,255,0.05);
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+      margin-bottom: 50px;
+    }
+
+    .comment-box h2 {
+      color: #ffdd57;
+      margin-bottom: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      background-color: #ffd700;
+      color: #1a1a1a;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ffea75;
+      transform: scale(1.05);
+    }
+
+    .success {
+      color: #90ee90;
+      margin-top: 15px;
+      font-weight: 600;
+      display: none;
+    }
+
+    a.back-home {
+      color: #ffd700;
+      text-decoration: none;
+      margin-bottom: 50px;
+      font-weight: bold;
+    }
+
+    a.back-home:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>Let’s Build Something Together</h1>
-  <p>Reach out via email, phone, or leave a comment below!</p>
-</header>
+  <header>
+    <h1>Let’s Build Something Together</h1>
+    <p>Reach out if any of my work inspires you or if you want something similar created.</p>
+  </header>
 
-<div class="contact-info">
-  <p>Email: <a href="mailto:ismailjalam@gmail.com">ismailjalam@gmail.com</a></p>
-  <p>Phone: <a href="tel:+2348144683329">08144683329</a></p>
-</div>
+  <div class="contact-info">
+    <p><span>Email:</span> <a href="mailto:ismailjalam@gmail.com">ismailjalam@gmail.com</a></p>
+    <p><span>Phone:</span> <a href="tel:+2348144683329">08144683329</a></p>
+  </div>
 
-<section>
-  <form id="contactForm">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <textarea name="message" placeholder="Your Comment" required></textarea>
-    <button type="submit">Send Comment</button>
-    <p class="success">Thanks! Your comment has been sent ✅</p>
-  </form>
-</section>
+  <div class="comment-box">
+    <h2>Leave a Comment</h2>
+    <form id="commentForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <textarea id="message" placeholder="Your Comment" required></textarea>
+      <button type="submit">Send</button>
+      <p class="success">Thanks! Your comment has been sent ✅</p>
+    </form>
+  </div>
 
-<a href="../index.html" class="back-home">← Back to Home</a>
+  <a href="../index.html" class="back-home">← Back to Home</a>
 
-<footer>
-  © 2025 Ismail Abdullahi Idris
-</footer>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
-<script>
-  // Firebase config (replace with your own project settings)
-  const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
+  <script>
+    // Your Firebase config
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "SENDER_ID",
+      appId: "APP_ID"
+    };
 
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database().ref("comments");
 
-  const form = document.getElementById('contactForm');
-  const successMsg = document.querySelector('.success');
+    const form = document.getElementById("commentForm");
+    const successMsg = document.querySelector(".success");
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = form.name.value.trim();
-    const message = form.message.value.trim();
-    if(name && message){
-      const newCommentRef = db.ref('comments').push();
-      newCommentRef.set({ name, message, timestamp: Date.now() })
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const message = document.getElementById("message").value;
+
+      db.push({ name, message })
         .then(() => {
-          successMsg.style.display = 'block';
+          successMsg.style.display = "block";
           form.reset();
-          setTimeout(()=> successMsg.style.display='none', 4000);
         })
-        .catch(err => alert(err));
-    }
-  });
-</script>
+        .catch(err => alert("Error: " + err));
+    });
+  </script>
 
 </body>
 </html>
