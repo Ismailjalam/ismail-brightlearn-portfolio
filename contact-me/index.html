@@ -163,13 +163,50 @@
       Don’t hesitate — let’s make something outstanding together.
     </p>
 
-    <!-- Contact Form -->
-    <form onsubmit="sendMessage(event)">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="email" id="email" placeholder="Your Email" required>
-      <textarea id="message" placeholder="Your Message..." required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+    <!-- Firebase Comments Form -->
+<form id="contactForm">
+  <input type="text" id="name" placeholder="Your Name" required />
+  <input type="email" id="email" placeholder="Your Email" required />
+  <textarea id="message" placeholder="Your Comment" required></textarea>
+  <button type="submit">Send</button>
+  <p class="success" style="display:none;">Thanks! Your comment has been sent ✅</p>
+</form>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+<script>
+  // Initialize Firebase
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    databaseURL: "YOUR_DATABASE_URL",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database().ref("comments");
+
+  const form = document.getElementById("contactForm");
+  const successMsg = document.querySelector(".success");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    db.push({ name, email, message })
+      .then(() => {
+        successMsg.style.display = "block";
+        form.reset();
+        setTimeout(() => successMsg.style.display = "none", 5000);
+      })
+      .catch((err) => alert("Error: " + err));
+  });
+</script>
   </section>
 
   <footer>
