@@ -214,6 +214,26 @@
       setTimeout(()=>{successMsg.style.display='none'},3000);
     }).catch(err=>alert('Error: '+err.message));
   });
+  const commentsList = document.getElementById('commentsList');
+const commentsRef = database.ref('comments');
+
+// Initial fetch of existing comments
+commentsRef.once('value', (snapshot) => {
+  snapshot.forEach((childSnapshot) => {
+    const data = childSnapshot.val();
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${data.name}</strong><br>${data.comment}`;
+    commentsList.prepend(li);
+  });
+});
+
+// Listen for new comments after page load
+commentsRef.on('child_added', (snapshot) => {
+  const data = snapshot.val();
+  const li = document.createElement('li');
+  li.innerHTML = `<strong>${data.name}</strong><br>${data.comment}`;
+  commentsList.prepend(li);
+});
 </script>
 
 </body>
