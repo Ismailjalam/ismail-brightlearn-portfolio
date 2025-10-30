@@ -146,6 +146,11 @@
     <button type="submit">Send Comment</button>
     <p id="successMsg">Thanks! Your comment has been sent ✅</p>
   </form>
+
+  <div id="commentsDisplay" style="margin-top: 30px;">
+    <h3>Recent Comments:</h3>
+    <ul id="commentsList" style="list-style:none; padding:0;"></ul>
+  </div>
 </section>
 
 <a href="../index.html" class="back-home">← Back to Home</a>
@@ -154,65 +159,58 @@
   © 2025 Ismail Abdullahi Idris
 </footer>
 
-  <!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-
 <script>
-  // Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyCqBs3z1sHmfoqO5-R6IH-epqbp9ypt9GE",
-    authDomain: "ismailjalam-a74e4.firebaseapp.com",
-    databaseURL: "https://ismailjalam-a74e4-default-rtdb.firebaseio.com",
-    projectId: "ismailjalam-a74e4",
-    storageBucket: "ismailjalam-a74e4.appspot.com",
-    messagingSenderId: "791455932737",
-    appId: "1:791455932737:web:452e30144d283124d541c0",
-    measurementId: "G-VCP1LJL56G"
-  };
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const database = firebase.database();
-
   const commentForm = document.getElementById('commentForm');
   const successMsg = document.getElementById('successMsg');
   const commentsList = document.getElementById('commentsList');
 
-  // Load existing comments
-  const commentsRef = database.ref('comments');
-  commentsRef.on('child_added', (snapshot) => {
-    const commentData = snapshot.val();
-    const li = document.createElement('li');
-    li.innerHTML = `<strong>${commentData.name}</strong><br>${commentData.comment}`;
-    commentsList.prepend(li);
-  });
+  const FUNCTION_URL = "https://us-central1-ismailjalam-a74e4.cloudfunctions.net/addComment";
 
-  // Handle form submit
-  commentForm.addEventListener('submit', (e) => {
+  async function loadComments() {
+    try {
+      const res = await fetch(FUNCTION_URL, { method: 'GET' });
+      const comments = await res.json();
+      commentsList.innerHTML = '';
+      comments.reverse().forEach(c => {
+        const li = document.createElement('li');
+        li.style.padding = "10px";
+        li.style.marginBottom = "10px";
+        li.style.background = "rgba(255,255,255,0.1)";
+        li.style.borderRadius = "8px";
+        li.innerHTML = `<strong>${c.name}</strong> <br>${c.comment}`;
+        commentsList.appendChild(li);
+      });
+    } catch(err) {
+      console.error("Error loading comments:", err);
+    }
+  }
+
+  loadComments();
+
+  commentForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const name = document.getElementById('name').value.trim();
     const comment = document.getElementById('comment').value.trim();
 
-    if (!name || !comment) {
+    if(!name || !comment){
       alert('Please fill the form!');
       return;
     }
 
-    const newCommentRef = database.ref('comments').push();
-    newCommentRef.set({
-      name: name,
-      comment: comment,
-      timestamp: Date.now()
-    })
-    .then(() => {
+    try {
+      await fetch(FUNCTION_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, comment })
+      });
       successMsg.style.display = 'block';
       commentForm.reset();
-      setTimeout(() => { successMsg.style.display = 'none'; }, 3000);
-    })
-    .catch((err) => alert('Error: ' + err.message));
+      loadComments();
+      setTimeout(()=>{successMsg.style.display='none'},3000);
+    } catch(err) {
+      alert("Error sending comment: "+err.message);
+    }
   });
 </script>
-  
 </body>
 </html>
