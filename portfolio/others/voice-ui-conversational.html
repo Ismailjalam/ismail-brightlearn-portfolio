@@ -3,94 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Voice UI & Conversational Design – Smart Assistant Experience</title>
+  <title>Exercise 24 – Voice UI & Conversational Design</title>
   <style>
     :root {
-      --bg-color: #f4f4f4;
-      --text-color: #333;
-      --header-bg: #1e3c72;
-      --header-text: #fff;
-      --accent-color: #cce0ff;
-      --section-bg: #fff;
-      --footer-bg: #eee;
-    }
-
-    body.dark {
-      --bg-color: #121212;
-      --text-color: #e0e0e0;
-      --header-bg: #0a1930;
-      --header-text: #e0e0e0;
-      --accent-color: #7eaaff;
-      --section-bg: #1e1e1e;
-      --footer-bg: #1a1a1a;
+      --bg: #f8faff;
+      --card-bg: #fff;
+      --text: #333;
+      --accent: #1e3c72;
+      --accent-light: #cce0ff;
     }
 
     body {
-      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
-      transition: background 0.4s, color 0.4s;
     }
 
     header {
+      background: var(--accent);
+      color: white;
       text-align: center;
-      padding: 40px 20px;
-      background: var(--header-bg);
-      color: var(--header-text);
-      position: relative;
+      padding: 50px 20px;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 2.2em;
+      letter-spacing: 0.5px;
     }
 
     header p {
-      margin-top: 8px;
-      color: var(--accent-color);
+      margin-top: 10px;
+      color: var(--accent-light);
       font-size: 1.1em;
     }
 
-    .theme-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: var(--accent-color);
-      color: var(--header-bg);
-      border: none;
-      border-radius: 20px;
-      padding: 8px 16px;
-      font-size: 0.9em;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .theme-toggle:hover {
-      opacity: 0.9;
-      transform: scale(1.05);
-    }
-
     section {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 20px;
-      background: var(--section-bg);
+      max-width: 900px;
+      margin: 40px auto;
+      background: var(--card-bg);
+      padding: 30px 25px;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      transition: background 0.4s, box-shadow 0.4s;
+      animation: fadeUp 1s ease forwards;
       opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 1.2s ease forwards;
+      transform: translateY(40px);
     }
 
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
       to {
         opacity: 1;
         transform: translateY(0);
@@ -98,35 +60,48 @@
     }
 
     h2 {
-      color: var(--header-bg);
-      margin-top: 40px;
+      color: var(--accent);
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+      margin-top: 30px;
     }
 
     ul {
-      margin: 10px 0 15px 20px;
-    }
-
-    p {
-      margin: 10px 0 15px 0;
-      font-size: 1em;
+      margin-left: 20px;
     }
 
     footer {
+      background: #eee;
       text-align: center;
-      padding: 20px;
-      background: var(--footer-bg);
+      padding: 15px;
+      color: #666;
       font-size: 0.9em;
-      color: #777;
-      margin-top: 50px;
-      transition: background 0.4s;
+      margin-top: 40px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 15px;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+      border: 1px solid var(--accent);
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      background: var(--accent);
+      color: white;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <button class="theme-toggle" onclick="toggleTheme()">🌗 Toggle Mode</button>
-    <h1>Voice UI & Conversational Design</h1>
-    <p>Designing intuitive, natural, and human-like digital interactions</p>
+    <h1>Exercise 24 – Voice UI & Conversational Design</h1>
+    <p>Smart Assistant Experience (Conversational AI Interaction)</p>
   </header>
 
   <section>
@@ -140,21 +115,20 @@
 
     <h2>Core Focus Areas</h2>
     <ul>
-      <li><strong>Speech Recognition:</strong> Accurately capturing spoken input in different tones and accents.</li>
-      <li><strong>Natural Language Understanding:</strong> Detecting user intent through contextual AI models.</li>
-      <li><strong>Conversational Flow Mapping:</strong> Designing smooth dialogue transitions and recovery from errors.</li>
-      <li><strong>Emotional Intelligence:</strong> Using sentiment analysis for adaptive responses.</li>
-      <li><strong>Accessibility:</strong> Enabling hands-free, inclusive interactions for all users.</li>
-      <li><strong>Voice Personality Design:</strong> Creating branded assistant personas (friendly, formal, witty, etc.).</li>
-      <li><strong>Privacy by Design:</strong> Transparent handling of voice data and user consent.</li>
+      <li><strong>Speech Recognition:</strong> Accurate capture of diverse spoken inputs.</li>
+      <li><strong>Natural Language Understanding:</strong> Detecting user intent with contextual AI.</li>
+      <li><strong>Conversational Flow Mapping:</strong> Designing smooth dialogue recovery.</li>
+      <li><strong>Emotional Intelligence:</strong> Sentiment-based adaptive responses.</li>
+      <li><strong>Accessibility:</strong> Hands-free, inclusive interaction for all.</li>
+      <li><strong>Voice Personality Design:</strong> Creating consistent assistant personas.</li>
+      <li><strong>Privacy by Design:</strong> Transparent and ethical voice data use.</li>
     </ul>
 
     <h2>Prototyping & Testing</h2>
     <p>
-      Prototypes were created in Figma, with voice commands integrated via
-      Dialogflow and Alexa Skills Kit. User tests measured response clarity,
-      timing, and trust levels. Iterations refined conversational flow,
-      vocabulary breadth, and personality tone.
+      Prototypes were built in Figma, integrated with Dialogflow and Alexa Skills Kit.
+      User testing covered response clarity, tone, and trust. Iterations improved
+      vocabulary range, conversational flow, and assistant persona.
     </p>
 
     <h2>Design Deliverables</h2>
@@ -163,34 +137,28 @@
       <li>Emotion-based Response Framework</li>
       <li>Multilingual Voice Support Maps</li>
       <li>Speech Recognition UX Patterns</li>
-      <li>Usability Test Reports (WAI-ARIA and WCAG compliance)</li>
+      <li>Usability & Accessibility Test Reports</li>
     </ul>
 
     <h2>Key Outcomes</h2>
     <ul>
-      <li>Enhanced accessibility and user comfort with hands-free design.</li>
-      <li>Reduced cognitive load by minimizing complex navigation.</li>
-      <li>Increased engagement and brand perception through voice identity.</li>
-      <li>Portfolio demonstration of advanced AI-driven UX design capability.</li>
+      <li>Improved accessibility via hands-free design.</li>
+      <li>Reduced user effort in task execution.</li>
+      <li>Increased brand engagement through voice persona.</li>
+      <li>Showcase of AI-integrated UX innovation.</li>
     </ul>
 
     <h2>Future Improvements</h2>
     <p>
-      Future iterations aim to integrate real-time emotion recognition, adaptive
-      language models, and context persistence across devices. This will push
-      conversational interfaces toward truly human-like experiences powered by
-      ethical AI.
+      The next phase will explore emotion-aware responses and adaptive
+      conversational memory for persistent, human-like dialogue experiences.
     </p>
+
+    <a href="ux-projects.html" class="back-link">⬅ Back to All UX Exercises</a>
   </section>
 
   <footer>
     © 2025 Ismail Abdullahi Idris
   </footer>
-
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle('dark');
-    }
-  </script>
 </body>
 </html>
