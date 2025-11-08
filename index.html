@@ -31,6 +31,7 @@
       justify-content: center;
       gap: 15px;
       padding: 10px 0;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -46,12 +47,13 @@
     }
 
     section {
-      padding: 40px 20px;
+      padding: 60px 20px;
       text-align: center;
       background: #fff;
-      margin: 20px;
+      margin: 20px auto;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      max-width: 900px;
     }
 
     footer {
@@ -65,12 +67,13 @@
 
     .btn {
       display: inline-block;
-      margin-top: 15px;
+      margin-top: 20px;
       background: #222;
       color: #fff;
-      padding: 10px 20px;
+      padding: 12px 24px;
       border-radius: 6px;
       text-decoration: none;
+      font-weight: bold;
       transition: background 0.3s;
     }
 
@@ -88,14 +91,14 @@
   <nav>
     <a href="about/index.html">About Me</a>
     <a href="portfolio/index.html">Portfolio</a>
-    <a href="buy data/buy.html">Buy Data</a>
-    <a href="contact me/index.html">Contact Me</a>
+    <a href="buy-data/buy.html">Buy Data</a>
+    <a href="contact-me/index.html">Contact Me</a>
   </nav>
 
   <section>
     <h2>Explore My Work</h2>
     <p>
-      Here you can find my projects, personal details, and how to get in touch with me.
+      Discover my projects, skills, and how I can help solve your problems.
     </p>
     <a href="portfolio/index.html" class="btn">View Portfolio</a>
   </section>
@@ -103,28 +106,6 @@
   <footer>
     &copy; 2025 Ismail Abdullahi Idris. All Rights Reserved.
   </footer>
-
-  <!-- ✅ Linking Script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const links = {
-        about: "about/index.html",
-        contact: "contact me/index.html",
-        portfolio: "portfolio/index.html",
-        buy: "buy data/buy.html"
-      };
-
-      document.querySelectorAll("nav a").forEach(link => {
-        link.addEventListener("click", function (e) {
-          e.preventDefault();
-          const href = this.getAttribute("href");
-          if (href && !href.startsWith("#")) {
-            window.location.href = href;
-          }
-        });
-      });
-    });
-  </script>
 
 </body>
 </html>
