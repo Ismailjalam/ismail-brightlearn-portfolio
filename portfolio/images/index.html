@@ -3,24 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Gallery</title>
+  <title>Portfolio Auto-Gallery</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 font-sans p-8">
 
   <h1 class="text-3xl font-bold mb-6 text-center">My Portfolio Gallery</h1>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-    <!-- Hotuna daga images/ -->
-    <img src="images/photo1.png" alt="Photo 1" class="rounded shadow-lg cursor-pointer hover:scale-105 transition transform">
-    <img src="images/photo2.png" alt="Photo 2" class="rounded shadow-lg cursor-pointer hover:scale-105 transition transform">
-    <img src="images/photo3.png" alt="Photo 3" class="rounded shadow-lg cursor-pointer hover:scale-105 transition transform">
-    <img src="images/photo4.png" alt="Photo 4" class="rounded shadow-lg cursor-pointer hover:scale-105 transition transform">
-
-    <!-- Hotuna daga images/Photo/ -->
-    <img src="images/Photo/photo5.png" alt="Photo 5" class="rounded shadow-lg cursor-pointer hover:scale-105 transition transform">
-    <img src="images/Photo/photo6.png" alt="Photo 6" class="rounded shadow-lg cursor-pointer hover:scale-105 transition transform">
-    <!-- Add more photos as needed -->
+  <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <!-- JS zai saka hotuna nan -->
   </div>
 
   <!-- Modal -->
@@ -31,12 +22,31 @@
     <img id="modal-img" src="" class="max-w-full max-h-full rounded shadow-lg animate-[zoomIn_0.3s_ease]">
   </div>
 
-  <a href="index.html" class="block mt-8 text-center">
-    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">Back to Portfolio</button>
-  </a>
-
   <script>
-    const images = document.querySelectorAll('.grid img');
+    const galleryDiv = document.getElementById('gallery');
+
+    // === List of all images ===
+    const imageArray = [
+      'images/photo1.png',
+      'images/photo2.png',
+      'images/photo3.png',
+      'images/photo4.png',
+      'images/Photo/photo5.png',
+      'images/Photo/photo6.png'
+      // Add new images here
+    ];
+
+    // Auto-generate <img> tags
+    imageArray.forEach((src, index) => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = `Photo ${index+1}`;
+      img.className = 'rounded shadow-lg cursor-pointer hover:scale-105 transition transform';
+      img.addEventListener('click', () => openModal(index));
+      galleryDiv.appendChild(img);
+    });
+
+    // === Modal Logic ===
     const modal = document.getElementById('modal');
     const modalImg = document.getElementById('modal-img');
     const closeBtn = document.getElementById('close');
@@ -44,7 +54,6 @@
     const nextBtn = document.getElementById('next');
 
     let currentIndex = 0;
-    const imageArray = Array.from(images).map(img => img.src);
 
     function openModal(index){
       currentIndex = index;
@@ -56,7 +65,6 @@
     function showNext(){ currentIndex = (currentIndex + 1) % imageArray.length; modalImg.src = imageArray[currentIndex]; }
     function showPrev(){ currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length; modalImg.src = imageArray[currentIndex]; }
 
-    images.forEach((img, index) => { img.addEventListener('click', () => openModal(index)); });
     closeBtn.addEventListener('click', closeModal);
     nextBtn.addEventListener('click', showNext);
     prevBtn.addEventListener('click', showPrev);
