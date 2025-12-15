@@ -1,82 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Image Gallery - BrightLearn</title>
-<style>
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(120deg, #1e3c72, #2a5298);
-    color: #fff;
-    padding: 20px;
-  }
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  #gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 16px;
-    max-width: 1000px;
-    margin: auto;
-  }
-  #gallery img {
-    width: 100%;
-    border-radius: 8px;
-    transition: transform 0.3s;
-  }
-  #gallery img:hover {
-    transform: scale(1.05);
-  }
-  .no-images {
-    text-align: center;
-    font-size: 1.2em;
-    color: #cce0ff;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100 font-sans p-8">
 
-<h1>Image Gallery</h1>
-<div id="gallery"></div>
+  <h1 class="text-3xl font-bold mb-6 text-center">Photo Gallery</h1>
 
-<footer style="text-align:center; margin-top:40px;">
-  © 2025 BrightLearn — Ismail Abdullahi Idris
-</footer>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <img src="images/photo1.jpg" alt="Photo 1" class="rounded shadow-lg cursor-pointer hover:scale-105 transition transform">
+    <img src="images/photo2.jpg" alt="Photo 2" class="rounded shadow-lg cursor-pointer hover:scale-105 transition transform">
+    <img src="images/photo3.jpg" alt="Photo 3" class="rounded shadow-lg cursor-pointer hover:scale-105 transition transform">
+    <img src="images/photo4.jpg" alt="Photo 4" class="rounded shadow-lg cursor-pointer hover:scale-105 transition transform">
+    <!-- Add more images here -->
+  </div>
 
-<script>
-// Auto-detect images in the folder
-const gallery = document.getElementById('gallery');
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden z-50">
+    <span id="close" class="absolute top-5 right-10 text-white text-5xl cursor-pointer font-bold">&times;</span>
+    <span id="prev" class="absolute left-5 text-white text-5xl cursor-pointer select-none">&#10094;</span>
+    <span id="next" class="absolute right-5 text-white text-5xl cursor-pointer select-none">&#10095;</span>
+    <img id="modal-img" src="" class="max-w-full max-h-full rounded shadow-lg animate-[zoomIn_0.3s_ease]">
+  </div>
 
-// List of possible image extensions
-const extensions = ['jpg','jpeg','png','gif','webp'];
+  <a href="index.html" class="block mt-8 text-center">
+    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">Back to Portfolio</button>
+  </a>
 
-// Try to create images 1 to 20 (adjust max if needed)
-let found = false;
-for(let i=1; i<=20; i++){
-  for(let ext of extensions){
-    const img = new Image();
-    img.src = `images/image${i}.${ext}`;
-    img.onload = () => { // show only if exists
-      gallery.appendChild(img);
-    };
-    img.onerror = () => {}; // ignore if not exists
-  }
-}
+  <script>
+    const images = document.querySelectorAll('.grid img');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeBtn = document.getElementById('close');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
 
-// If no images found after short delay, show message
-setTimeout(()=>{
-  if(gallery.children.length === 0){
-    const msg = document.createElement('div');
-    msg.className = 'no-images';
-    msg.textContent = "No images yet.";
-    gallery.appendChild(msg);
-  }
-}, 500);
-</script>
+    let currentIndex = 0;
+    const imageArray = Array.from(images).map(img => img.src);
+
+    function openModal(index){
+      currentIndex = index;
+      modal.classList.remove('hidden');
+      modalImg.src = imageArray[currentIndex];
+    }
+
+    function closeModal(){ modal.classList.add('hidden'); }
+    function showNext(){ currentIndex = (currentIndex + 1) % imageArray.length; modalImg.src = imageArray[currentIndex]; }
+    function showPrev(){ currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length; modalImg.src = imageArray[currentIndex]; }
+
+    images.forEach((img, index) => { img.addEventListener('click', () => openModal(index)); });
+    closeBtn.addEventListener('click', closeModal);
+    nextBtn.addEventListener('click', showNext);
+    prevBtn.addEventListener('click', showPrev);
+
+    // Close modal by clicking outside image
+    modal.addEventListener('click', e => { if(e.target===modal) closeModal(); });
+  </script>
+
+  <style>
+    @keyframes zoomIn { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  </style>
 
 </body>
 </html>
