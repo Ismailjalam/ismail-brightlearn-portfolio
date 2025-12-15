@@ -1,78 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Me — Ismail Abdullahi Idris</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me - Data Science & Analytics</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: #f0f8ff;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.7;
     }
-    header {
-      text-align: center;
-      padding: 40px 20px;
-    }
-    header h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      color: #ffcc00;
-    }
-    header p {
-      font-size: 1.2em;
-      color: #dbeeff;
-    }
+
     section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background: rgba(0,0,0,0.3);
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      padding: 60px 20px;
     }
-    section h2 {
-      color: #ffd633;
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    /* ===== Bio Card ===== */
+    .bio-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      padding: 30px 20px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      text-align: center;
+      margin-bottom: 50px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .bio-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #0d47a1;
+      object-fit: cover;
       margin-bottom: 15px;
     }
-    section p {
-      line-height: 1.6;
-      font-size: 1.1em;
-      margin-bottom: 12px;
+
+    .bio-card h2 {
+      color: #0d47a1;
+      margin: 5px 0;
     }
-    footer {
-      text-align: center;
+
+    .bio-card p {
+      color: #1565c0;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .bio-links a {
+      display: inline-block;
+      margin: 6px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background-color: #0d47a1;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .bio-links a:hover {
+      background-color: #1565c0;
+      transform: translateY(-2px);
+    }
+
+    /* ===== About Section ===== */
+    h2 {
+      font-size: 2.5em;
+      color: #0d47a1;
+      font-weight: bold;
+      margin-bottom: 25px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    h3 {
+      font-size: 1.8em;
+      color: #1565c0;
+      margin-bottom: 15px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    h4 {
+      font-size: 1.2em;
+      color: #1976d2;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    ul {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .skills-container div {
+      flex: 1 1 250px;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
       padding: 20px;
-      font-size: 0.9em;
-      color: #ccc;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skills-container div:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .skills-container div h4 {
+      margin-bottom: 10px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #0d47a1;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: all 0.3s;
+      margin-top: 20px;
+    }
+
+    .cta-button:hover {
+      background-color: #1565c0;
+      transform: translateY(-3px);
+    }
+
+    canvas {
+      background-color: #fff;
+      border-radius: 12px;
+      max-width: 100%;
+      height: 250px;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    @media (max-width: 600px) {
+      h2 { font-size: 2em; }
+      h3 { font-size: 1.5em; }
+      .skills-container { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>About Me</h1>
-  <p>Discover who I am, my skills, and my passions.</p>
-</header>
+  <!-- ===== Bio Card ===== -->
+  <div class="container">
+    <div class="bio-card fade-in">
+      <img src="https://via.placeholder.com/120" alt="Profile Picture">
+      <h2>Ismail Abdullahi Idris</h2>
+      <p>Data Analyst | Digital Creator</p>
+      <div class="bio-links">
+        <a href="mailto:Ismailjalam@gmail.com">Email</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a href="phone number" target="_08144683329">WhatsApp</a>
+        <a href="https://x.com" target="_blank">Twitter</a>
+      </div>
+    </div>
+  </div>
 
-<section>
-  <h2>Introduction</h2>
-  <p>My name is <strong>Ismail Abdullahi Idris</strong>. I am a creative professional specializing in UI/UX design, video editing, and graphic design. My goal is to craft engaging digital experiences that inspire and captivate audiences.</p>
+  <!-- ===== About Me Section ===== -->
+  <section id="about-me">
+    <div class="container">
+      <h2 class="fade-in">💻 Data Science Expertise</h2>
+      <p class="fade-in">
+        Data Science is a multidisciplinary field that applies scientific methods, processes, algorithms, and systems to extract knowledge and insights from structured and unstructured data. In essence, it transforms raw data into meaningful, actionable intelligence that drives informed decision-making.
+      </p>
 
-  <h2>Skills & Expertise</h2>
-  <p>• UI/UX Design — Mobile & Web Interfaces<br>
-     • Video Editing — Short-form, promotional, and demo reels<br>
-     • Graphic Design — Logos, marketing materials, digital assets</p>
+      <h3 class="fade-in">My Expertise and Skills (The Data Science Pipeline)</h3>
+      <p class="fade-in">
+        As a Data Scientist, I specialize in using modern techniques and tools to convert large volumes of raw data into actionable insights and predictive models. My work spans the full Data Science lifecycle:
+      </p>
 
-  <h2>Passion</h2>
-  <p>I enjoy transforming ideas into visually appealing, functional digital products. I strive for designs that are intuitive, interactive, and tailored to the user’s experience.</p>
-</section>
+      <h4 class="fade-in">Data Acquisition & Preprocessing</h4>
+      <ul class="fade-in">
+        <li>Collecting, integrating, and cleaning data from multiple sources.</li>
+        <li>Handling missing values, detecting outliers, and transforming data to ensure accuracy and readiness for analysis.</li>
+      </ul>
 
-<footer>
-  © 2025 Ismail Abdullahi Idris
-</footer>
+      <h4 class="fade-in">Exploratory Data Analysis (EDA)</h4>
+      <ul class="fade-in">
+        <li>Using Python libraries such as Pandas and NumPy to deeply investigate datasets.</li>
+        <li>Creating visualizations with Matplotlib and Seaborn to uncover hidden trends, patterns, and relationships.</li>
+      </ul>
+
+      <h4 class="fade-in">Machine Learning Model Development</h4>
+      <ul class="fade-in">
+        <li>Designing, training, and evaluating robust Machine Learning models for real-world problems.</li>
+        <li>Classification: Predicting categories (e.g., customer churn, disease diagnosis).</li>
+        <li>Regression: Forecasting continuous values (e.g., housing prices, stock trends).</li>
+        <li>Skilled in Scikit-learn, TensorFlow, and Keras frameworks.</li>
+      </ul>
+
+      <h4 class="fade-in">Model Deployment & Communication</h4>
+      <ul class="fade-in">
+        <li>Deploying functional ML models as web apps for real-time user interaction.</li>
+        <li>Experienced with platforms like Streamlit and Vercel to showcase projects effectively.</li>
+      </ul>
+
+      <h3 class="fade-in">Core Skills</h3>
+      <div class="skills-container fade-in">
+        <div>
+          <div style="font-size:2em; margin-bottom:10px;">📈</div>
+          <h4>Data Cleaning</h4>
+          <p>Pandas, NumPy, Excel</p>
+        </div>
+        <div>
+          <div style="font-size:2em; margin-bottom:10px;">📊</div>
+          <h4>Data Analysis</h4>
+          <p>Matplotlib, Seaborn, Power BI, Tableau</p>
+        </div>
+        <div>
+          <div style="font-size:2em; margin-bottom:10px;">🤖</div>
+          
+        <div>
+          <div style="font-size:2em; margin-bottom:10px;">🚀</div>
+          <h4>Deployment</h4>
+          <p>Streamlit, Vercel</p>
+        </div>
+      </div>
+
+      <h4 class="fade-in">Sample Project Metrics:</h4>
+      <canvas id="miniChart" class="fade-in"></canvas>
+
+      <h3 class="fade-in">My Goal</h3>
+      <p class="fade-in">
+        I aim to harness the power of data to help individuals and organizations make smarter, data-driven decisions, optimize operations, and achieve meaningful business outcomes.
+      </p>
+
+      <a href="#contact" class="cta-button fade-in">Contact Me</a>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Fade-in scroll effect
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Mini Chart Example
+    const ctx = document.getElementById('miniChart').getContext('2d');
+    const miniChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['EDA', 'ML Models', 'Reports', 'Dashboards', 'Deployments'],
+        datasets: [{
+          label: 'Projects Completed',
+          data: [25, 18, 15, 20, 12],
+          backgroundColor: '#1976d2'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+  </script>
 
 </body>
 </html>
